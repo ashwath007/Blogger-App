@@ -1,9 +1,9 @@
 import React from 'react'
-import {View,StyleSheet} from 'react-native';
+import {View,StyleSheet,Text} from 'react-native';
 
 
 
-const Signup = () => {
+const SignUp = () => {
     return(
         <View>
             <Text>
@@ -13,4 +13,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default SignUp
