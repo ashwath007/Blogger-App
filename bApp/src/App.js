@@ -30,7 +30,7 @@ const Stack = createStackNavigator();
 const App = ({authState}) => {
     
   
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); //HOOK 
 
   const onAuthStateChanged = (user) => {
     if(user){
@@ -44,14 +44,61 @@ const App = ({authState}) => {
       .ref(`/users/${user._user.uid}`)
       .on('value',(snapshot)=>{
         console.log('USER DETAILS: ',snapshot.val())
+        dispatch({
+          type: SET_USER,
+          payload: snapshot.val()
+        })
+      })
+    }
+    else{
+      dispatch({
+        type: IS_AUTHENTICATED,
+        payload: false
       })
     }
   }
+
+  useEffect(()=>{
+    requestPermission()
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
+    return subscriber
+  },[])
+
+
+  if(authState.loading){
+    return <EmptyContainer/>
+  }
+
+
   return( 
-       <Text>
-         Vickys
-       </Text>
+       <>
+       <NavigationContainer>
+         <Stack.Navigator
+          screenOptions={{
+            header: (props) => <CustomeHeader {...props}/>
+          }}
+         >
+           {authState.isAuthenticated ? (
+             <>
+             <Stack.Screen name="Home" component={Home}/>
+             <Stack.Screen name="AddPost" component={AddPost}/>
+
+             </>
+           ) : (
+              <>
+            <Stack.Screen name="Signin" component={Signin}/>
+            <Stack.Screen name="Signup" component={Signup}/>
+            </>
+           )} 
+         </Stack.Navigator>
+       </NavigationContainer>
+       </>
     )
 }
 
-export default App
+
+const mapStateToProps = (state) => {
+  authState: state.auth
+}
+
+export default connect(mapStateToProps)(App)
