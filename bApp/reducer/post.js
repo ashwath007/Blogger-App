@@ -1,4 +1,4 @@
-import { SET_POST, ERROR_POST } from '../action/action.types'
+import { SET_POST, ERROR_POST } from '../src/action/action.types'
 
 const initialState = {
     posts: null,

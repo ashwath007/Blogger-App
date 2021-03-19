@@ -1,4 +1,4 @@
-import { SET_USER, IS_AUTHENTICATED } from '../action/action.types';
+import { SET_USER, IS_AUTHENTICATED } from '../src/action/action.types';
 
 
 const initialState = {
