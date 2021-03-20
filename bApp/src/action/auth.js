@@ -73,7 +73,7 @@ export const signOut = () => async(dispatch) => {
 
             console.log('User signed out!')
             Snackbar.show({
-                text: 'SignIn sucess',
+                text: 'Signout sucess',
                 textColor: 'white',
                 backgroundColor: 'green'
             })

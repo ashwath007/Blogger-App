@@ -24,7 +24,7 @@ const CustomHeader = ({signOut, authState, navigation}) => {
         }}
         >
         <Body>
-            <Title>Social App LCO</Title>
+            <Title>Blogger App</Title>
         </Body>
         <Right>
             {authState.isAuthenticated && (
