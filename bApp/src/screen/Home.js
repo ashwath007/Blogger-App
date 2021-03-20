@@ -20,11 +20,23 @@ const Home = ({getPosts, postState, userDetails}) => {
         return <EmptyContainer/>
     }
     return(
-        <View>
-            <Text>
-                Home
-            </Text>
-        </View>
+     <SafeAreaView style={styles.container}>
+         <FlatList
+            data={postState.posts}
+            keyExtractor = {(item) => item.id}
+            renderItem={({item,index,separators})=>(
+                <Post item={item} userDetails={userDetails} key={item.id}/>
+            )}
+            ListEmptyComponent={() => (
+                <Container style={styles.emptyContainer}>
+                  <H1>No post found</H1>
+                </Container>
+              )}
+             >
+
+
+         </FlatList>
+     </SafeAreaView>
     )
 }
 
@@ -35,5 +47,27 @@ Home.propTypes = {
 
 }
 
+const mapStateToProps = (state) => ({
+    postState: state.post,
+    userDetails: state.auth.user
+})
 
-export default connect()(Home)
+const mapDispatchToProps = {
+    getPosts
+}
+
+const styles = StyleSheet.create({
+    container: {
+      backgroundColor: '#1b262c',
+      justifyContent: 'flex-start',
+      padding: 4,
+      flex: 1,
+    },
+    emptyContainer: {
+      flex: 1,
+      backgroundColor: '#1b262c',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  });
+export default connect(mapStateToProps,mapDispatchToProps)(Home)
