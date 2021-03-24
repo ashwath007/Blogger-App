@@ -24,7 +24,7 @@ import {signUp} from '../action/auth'
 import {connect} from 'react-redux'
 
 
-const SignUp = ({signUp}) => {
+const SignUp = ({navigation,signUp}) => {
 
     const [name,setName] = useState('')
     const [email,setEmail] = useState('')
@@ -32,7 +32,7 @@ const SignUp = ({signUp}) => {
     const [instaUserName,setInstaUserName] = useState('')
     const [country,setCountry] = useState('')
     const [bio,setBio] = useState('')
-    const [image,setImage] = useState('https://firebase.google.com/downloads/brand-guidelines/PNG/logo-vertical.png')
+    const [image,setImage] = useState('https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=633&q=80')
 
 
     const [imageUploading,setImageUploading] = useState(false)
@@ -151,6 +151,13 @@ const SignUp = ({signUp}) => {
                 <Button regular block onPress={doSignUp}>
                   <Text>SignUp</Text>
                 </Button>
+                <TouchableOpacity
+                onPress={() => navigation.navigate('SignIn')}
+                style={{marginTop: 10}}>
+                <Text style={{color: '#fff', textAlign: 'center'}}>
+                  Already have an account, SignIn here
+                </Text>
+              </TouchableOpacity>
               </Form>
             </ScrollView>
           </Content>
@@ -170,7 +177,7 @@ SignUp.propTypes = {
  
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#1b262c',
+      backgroundColor: '#fff',
       flex: 1,
       justifyContent: 'flex-start',
     },

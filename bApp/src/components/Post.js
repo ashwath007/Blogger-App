@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Image, Linking} from 'react-native';
+import {Image, Linking,View} from 'react-native';
 import {
   Card,
   CardItem,
@@ -65,10 +65,15 @@ const Post = ({item, userDetails}) => {
     
 
     return (
+      <View style={{padding:12}}>
       <Card
         style={{
-          backgroundColor: '#0f4c75',
-          borderColor: '#0f4c75',
+          backgroundColor: '#fff',
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 1 },
+          shadowOpacity: 0.8,
+          elevation: 5,
+          borderRadius:12,
         }}>
         <CardItem
           style={{
@@ -103,18 +108,20 @@ const Post = ({item, userDetails}) => {
           <Text
             numberOfLines={2}
             style={{
-              color: '#fff',
+              color: '#000',
+              marginLeft:8
             }}>
             {item.description}
           </Text>
-          <Text>
+          {/* <Text styel={{color:'black'}}>
                By - {item.userName}
-          </Text>
+          </Text> */}
         </CardItem>
   
         <CardItem
           style={{
-            backgroundColor: '#0f4c75',
+            backgroundColor: '#fff',
+            borderRadius:12
           }}>
           <Left>
             <Button transparent onPress={upVotePost}>
@@ -153,19 +160,20 @@ const Post = ({item, userDetails}) => {
               }}>
               <Text
                 style={{
-                  color: '#fdcb9e',
+                  color: '#000',
                 }}>
-                Open in
+                Read Article
               </Text>
-              <Icon
+              {/* <Icon
                 name="instagram"
                 type="Feather"
                 style={{fontSize: 20, color: '#fdcb9e'}}
-              />
+              /> */}
             </Button>
           </Right>
         </CardItem>
       </Card>
+      </View>
     );
   
 }

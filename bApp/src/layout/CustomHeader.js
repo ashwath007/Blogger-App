@@ -20,11 +20,11 @@ const CustomHeader = ({signOut, authState, navigation}) => {
         <Header
         androidStatusBarColor="#0f4c75"
         style={{
-            backgroundColor: "#0f4c75"
+            backgroundColor: "#E21717"
         }}
         >
         <Body>
-            <Title>Blogger App</Title>
+            <Title>Startup LIFE</Title>
         </Body>
         <Right>
             {authState.isAuthenticated && (

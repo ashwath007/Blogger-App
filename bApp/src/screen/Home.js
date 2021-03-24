@@ -58,7 +58,7 @@ const mapDispatchToProps = {
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#1b262c',
+      backgroundColor: '#fff',
       justifyContent: 'flex-start',
       padding: 4,
       flex: 1,

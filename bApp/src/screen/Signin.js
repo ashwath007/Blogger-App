@@ -7,7 +7,8 @@ import {
     Input,
     Text,
     Button,
-    H3
+    H3,
+    Label
 
 } from 'native-base'
 
@@ -28,42 +29,50 @@ const SignIn = ({navigation, signIn}) => {
     return (
         <Container style={styles.container}>
           <ScrollView contentContainerStyle={{flexGrow: 1}}>
-            <H3 style={styles.heading}>Welcome to the Travel-gram Social App</H3>
+          
     
             <Image
-              source='https://firebase.google.com/downloads/brand-guidelines/PNG/logo-vertical.png'
+              source={{uri:'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=633&q=80'}}
               style={{width: null, height: 150, marginTop: 30}}
               resizeMode="contain"
             />
     
-            <Form>
-              <Item rounded style={styles.formItem}>
+            <Form style={{padding:20,marginTop:56}}>
+            <Label style={{marginLeft:8}}>
+                  Email
+                </Label>
+              <Item style={styles.formItem}>
                 <Input
-                  placeholder="enter your registerd email"
+                  placeholder="Enter your registerd email"
                   value={email}
                   style={{color: '#eee'}}
                   onChangeText={(text) => setEmail(text)}
                 />
               </Item>
-              <Item rounded style={styles.formItem}>
-                <Input
-                  placeholder="enter your registerd password"
+              <Label style={{marginLeft:8}}>
+                  Password
+                </Label>
+              <Item style={styles.formItem}>
+              <Input
+                  placeholder="Enter your registerd password"
                   value={password}
                   secureTextEntry={true}
                   style={{color: '#eee'}}
                   onChangeText={(text) => setPassword(text)}
                 />
+              
               </Item>
-              <Button rounded block onPress={doSignIn}>
+              <Button block onPress={doSignIn} style={{backgroundColor:"#E21717"}}>
                 <Text>SignIn</Text>
               </Button>
               <TouchableOpacity
                 onPress={() => navigation.navigate('SignUp')}
                 style={{marginTop: 10}}>
-                <Text style={{color: '#fff', textAlign: 'center'}}>
+                <Text style={{color: '#E21717', textAlign: 'center'}}>
                   Do not have an account, SignUp here
                 </Text>
               </TouchableOpacity>
+              
             </Form>
           </ScrollView>
         </Container>
@@ -80,7 +89,7 @@ const mapDiapatchToProps = {
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#1b262c',
+      backgroundColor: '#fff',
       flex: 1,
       justifyContent: 'flex-start',
     },
