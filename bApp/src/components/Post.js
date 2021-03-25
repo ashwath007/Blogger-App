@@ -156,7 +156,7 @@ const Post = ({item, userDetails}) => {
               transparent
               iconLeft
               onPress={() => {
-                Linking.openURL(`instagram://user?username=${item.instaId}`);
+              //  Linking.openURL(`instagram://user?username=${item.instaId}`);
               }}>
               <Text
                 style={{
