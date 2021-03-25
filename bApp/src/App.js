@@ -96,6 +96,13 @@ const App =({authState}) => {
                 ),}}
                
                />
+                <Tab.Screen name="Video" component={Video} 
+                options={{
+                  tabBarLabel: 'Video',
+                  tabBarIcon: ({ color, size }) => (
+                    <MaterialCommunityIcons name="video" color={color} size={26} />
+                  ),}}
+               />
                <Tab.Screen name="AddPost" component={AddPost} 
                 options={{
                   tabBarLabel: 'Addpost',
@@ -111,13 +118,7 @@ const App =({authState}) => {
                   ),}}
                />
    
-               <Tab.Screen name="Video" component={Video} 
-                options={{
-                  tabBarLabel: 'Video',
-                  tabBarIcon: ({ color, size }) => (
-                    <MaterialCommunityIcons name="video" color={color} size={26} />
-                  ),}}
-               />
+              
               </>
             ) : (
               <>

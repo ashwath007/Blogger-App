@@ -1,7 +1,19 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, FlatList, SafeAreaView} from 'react-native';
+import {StyleSheet, FlatList, SafeAreaView,View} from 'react-native';
 import {Container, H1, Text} from 'native-base';
 // redux
+import {
+    Header,
+    Body,
+    Right,
+    Button,
+    Icon,
+    Left,
+    Title,
+    Segment, Content,
+
+ 
+} from 'native-base'
 import {getPosts} from '../action/post';
 import {connect} from 'react-redux';
 import propTypes from 'prop-types';
@@ -27,8 +39,36 @@ const Home = ({getPosts, postState, userDetails}) => {
 
     
     return(
+        <>
+             <Header
+        androidStatusBarColor="#0f4c75"
+        style={{
+            backgroundColor: "#E21717"
+        }}
+        >
+        <Body>
+            <Title>Startup LIFE</Title>
+        </Body>
+        
+        </Header>
      <SafeAreaView style={styles.container}>
+        <View style={{marginBottom:50}}> 
+        <Container>
+
+        
+          <Body >
+            <Segment style={{backgroundColor:"#E21717",padding:20,borderRadius:8}}>
+              <Button first><Text>My Feeds</Text></Button>
+              <Button last active><Text>Preferences</Text></Button>
+            </Segment>
+          </Body>
+         
+
+   
+      </Container>
+        </View>
          <FlatList
+    
             data={postState.posts}
             keyExtractor = {(item) => item.id}
             renderItem={({item,index,separators})=>(
@@ -44,6 +84,7 @@ const Home = ({getPosts, postState, userDetails}) => {
 
          </FlatList>
      </SafeAreaView>
+     </>
     )
 }
 
