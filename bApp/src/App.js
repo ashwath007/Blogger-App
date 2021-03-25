@@ -13,6 +13,8 @@ import AddPost from './screen/AddPost'
 import SignIn from './screen/SignIn'
 import SignUp from './screen/SignUp'
 import Home from './screen/Home'
+import Profile from './screen/Profile'
+import Video from './screen/Video'
 import CustomHeader from './layout/CustomHeader'
 
 import {SET_USER, IS_AUTHTHENTICATED} from './action/action.types'
@@ -101,7 +103,21 @@ const App =({authState}) => {
                     <MaterialCommunityIcons name="post" color={color} size={26} />
                   ),}}
                />
-
+                <Tab.Screen name="Profile" component={Profile} 
+                options={{
+                  tabBarLabel: 'Profile',
+                  tabBarIcon: ({ color, size }) => (
+                    <MaterialCommunityIcons name="account" color={color} size={26} />
+                  ),}}
+               />
+   
+               <Tab.Screen name="Video" component={Video} 
+                options={{
+                  tabBarLabel: 'Video',
+                  tabBarIcon: ({ color, size }) => (
+                    <MaterialCommunityIcons name="video" color={color} size={26} />
+                  ),}}
+               />
               </>
             ) : (
               <>
