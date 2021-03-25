@@ -98,7 +98,7 @@ const App =({authState}) => {
                />
                 <Tab.Screen name="Video" component={Video} 
                 options={{
-                  tabBarLabel: 'Video',
+                  tabBarLabel: 'Podcast',
                   tabBarIcon: ({ color, size }) => (
                     <MaterialCommunityIcons name="video" color={color} size={26} />
                   ),}}
