@@ -168,8 +168,8 @@ const AddPost = ({navigation, userState}) => {
                   />
                 </Item>
     
-                <Button regular block onPress={addPost}>
-                  <Text>Add Post</Text>
+                <Button style={{backgroundColor:'#E21717'}} regular block onPress={addPost}>
+                  <Text >Add Post</Text>
                 </Button>
               </Form>
             </ScrollView>
@@ -193,14 +193,15 @@ export default connect(mapStateToProps)(AddPost)
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#1b262c',
+      backgroundColor: '#fff',
       flex: 1,
       justifyContent: 'flex-start',
     },
     formItem: {
       marginBottom: 20,
+      backgroundColor:"#fff"
     },
-    icon: {fontSize: 20, color: '#fdcb9e'},
+    icon: {fontSize: 20, color: 'white'},
     image: {width: null, height: 150, marginVertical: 15},
     progress: {width: null, marginBottom: 20},
   });

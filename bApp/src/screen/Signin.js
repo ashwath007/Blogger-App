@@ -45,7 +45,7 @@ const SignIn = ({navigation, signIn}) => {
                 <Input
                   placeholder="Enter your registerd email"
                   value={email}
-                  style={{color: '#eee'}}
+                  style={{color: '#000'}}
                   onChangeText={(text) => setEmail(text)}
                 />
               </Item>
@@ -57,7 +57,7 @@ const SignIn = ({navigation, signIn}) => {
                   placeholder="Enter your registerd password"
                   value={password}
                   secureTextEntry={true}
-                  style={{color: '#eee'}}
+                  style={{color: '#000'}}
                   onChangeText={(text) => setPassword(text)}
                 />
               

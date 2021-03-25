@@ -20,8 +20,12 @@ import {SET_USER, IS_AUTHTHENTICATED} from './action/action.types'
 import database from '@react-native-firebase/database'
 import EmptyContainer from './components/EmptyContainer'
 import {requestPermission} from './utils/AskPermission'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Stack = createStackNavigator();
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+
+const Tab = createMaterialBottomTabNavigator();
 
 const App =({authState}) => {
 
@@ -70,23 +74,42 @@ const App =({authState}) => {
         
         <>
         <NavigationContainer>
-          <Stack.Navigator
+        <Tab.Navigator
           screenOptions={{
-            header: (props) => <CustomHeader {...props} />,
+            header: (props) => <CustomHeader {...props} />
           }}
+          tabBarOptions={{
+            activeTintColor: '#E21717',
+          }}
+          activeColor="#fff"
+        barStyle={{ backgroundColor: '#E21717' }}
           >
             {authState.isAuthenticated ? (
               <>
-              <Stack.Screen name="Home" component={Home} />
-              <Stack.Screen name="AddPost" component={AddPost} />
+               <Tab.Screen name="Home" component={Home} 
+               options={{
+                tabBarLabel: 'Home',
+                tabBarIcon: ({ color, size }) => (
+                  <MaterialCommunityIcons name="home" color={color} size={26} />
+                ),}}
+               
+               />
+               <Tab.Screen name="AddPost" component={AddPost} 
+                options={{
+                  tabBarLabel: 'Addpost',
+                  tabBarIcon: ({ color, size }) => (
+                    <MaterialCommunityIcons name="post" color={color} size={26} />
+                  ),}}
+               />
+
               </>
             ) : (
               <>
-              <Stack.Screen name="SignIn" component={SignIn} />
-              <Stack.Screen name="SignUp" component={SignUp} />
+               <Tab.Screen name="SignIn" component={SignIn} />
+               <Tab.Screen name="SignUp" component={SignUp} />
               </>
             )}
-          </Stack.Navigator>
+          </Tab.Navigator>
         </NavigationContainer>
         </>  
         

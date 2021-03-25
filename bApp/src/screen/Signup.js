@@ -8,11 +8,12 @@ Input,
 Text,
 Button,
 Thumbnail,
+
 Content} from 'native-base'
 
 
 import storage from '@react-native-firebase/storage'
-import ProgessBar from 'react-native-progress'
+import ProgressBar from 'react-native-progress'
 
 
 import ImagePicker from 'react-native-image-picker'
@@ -97,11 +98,12 @@ const SignUp = ({navigation,signUp}) => {
               {imageUploading && (
                 <ProgressBar progress={uploadStatus} style={styles.progress} />
               )}
-    
-              <Form>
+      <View style={{padding:10}}>
+              <Form style={{padding:10,backgroundColor:"#E21717",borderRadius:12}}>
                 <Item regular style={styles.formItem}>
                   <Input
-                    placeholder="name"
+                    placeholder="Enter your name"
+                    placeholderTextColor="#CAD5E2"
                     value={name}
                     style={{color: '#eee'}}
                     onChangeText={(text) => setName(text)}
@@ -109,16 +111,20 @@ const SignUp = ({navigation,signUp}) => {
                 </Item>
                 <Item regular style={styles.formItem}>
                   <Input
-                    placeholder="email"
+                    placeholder="Enter your email"
                     value={email}
+                    placeholderTextColor="#CAD5E2"
+
                     style={{color: '#eee'}}
                     onChangeText={(text) => setEmail(text)}
                   />
                 </Item>
                 <Item regular style={styles.formItem}>
                   <Input
-                    placeholder="password"
+                    placeholder="Enter your password"
                     value={password}
+                    placeholderTextColor="#CAD5E2"
+
                     secureTextEntry={true}
                     style={{color: '#eee'}}
                     onChangeText={(text) => setPassword(text)}
@@ -128,6 +134,8 @@ const SignUp = ({navigation,signUp}) => {
                   <Input
                     placeholder="Instagram user name"
                     value={instaUserName}
+                    placeholderTextColor="#CAD5E2"
+
                     style={{color: '#eee'}}
                     onChangeText={(text) => setInstaUserName(text)}
                   />
@@ -135,6 +143,8 @@ const SignUp = ({navigation,signUp}) => {
                 <Item regular style={styles.formItem}>
                   <Input
                     placeholder="Your Short Bio"
+                    placeholderTextColor="#CAD5E2"
+
                     value={bio}
                     style={{color: '#eee'}}
                     onChangeText={(text) => setBio(text)}
@@ -142,14 +152,16 @@ const SignUp = ({navigation,signUp}) => {
                 </Item>
                 <Item regular style={styles.formItem}>
                   <Input
-                    placeholder="country"
+                    placeholder="Enter your Country"
                     value={country}
+                    placeholderTextColor="#CAD5E2"
+
                     style={{color: '#eee'}}
                     onChangeText={(text) => setCountry(text)}
                   />
                 </Item>
-                <Button regular block onPress={doSignUp}>
-                  <Text>SignUp</Text>
+                <Button regular block onPress={doSignUp} style={{backgroundColor:"#fff"}}>
+                  <Text style={{color:"#E21717"}}>SignUp</Text>
                 </Button>
                 <TouchableOpacity
                 onPress={() => navigation.navigate('SignIn')}
@@ -159,6 +171,7 @@ const SignUp = ({navigation,signUp}) => {
                 </Text>
               </TouchableOpacity>
               </Form>
+              </View>
             </ScrollView>
           </Content>
         </Container>

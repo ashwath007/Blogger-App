@@ -5,10 +5,14 @@ import {Container, H1, Text} from 'native-base';
 import {getPosts} from '../action/post';
 import {connect} from 'react-redux';
 import propTypes from 'prop-types';
-
 // to render empty container
 import EmptyContainer from '../components/EmptyContainer';
 import Post from '../components/Post';
+
+import MainTabScreen from "../components/MainTabScreen"
+
+
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 const Home = ({getPosts, postState, userDetails}) => {
    
@@ -19,6 +23,9 @@ const Home = ({getPosts, postState, userDetails}) => {
     if(postState.loading){
         return <EmptyContainer/>
     }
+    const Tab = createMaterialBottomTabNavigator();
+
+    
     return(
      <SafeAreaView style={styles.container}>
          <FlatList
