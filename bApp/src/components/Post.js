@@ -75,7 +75,7 @@ const Post = ({item, userDetails}) => {
           elevation: 5,
           borderRadius:12,
         }}>
-        <CardItem
+        {/* <CardItem
           style={{
             backgroundColor: 'transparent',
           }}>
@@ -92,11 +92,11 @@ const Post = ({item, userDetails}) => {
               <Text note>{item.location}</Text>
             </Body>
           </Left>
-        </CardItem>
+        </CardItem> */}
         <CardItem cardBody>
           <Image
             source={{uri: item.picture}}
-            style={{height: 200, width: null, flex: 1}}
+            style={{height: 200, width: null, flex: 1,borderTopRightRadius:12}}
           />
           
         </CardItem>
