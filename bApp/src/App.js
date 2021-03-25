@@ -23,7 +23,7 @@ import database from '@react-native-firebase/database'
 import EmptyContainer from './components/EmptyContainer'
 import {requestPermission} from './utils/AskPermission'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+// LOGOS https://github.com/oblador/react-native-vector-icons/blob/master/glyphmaps/MaterialCommunityIcons.json
 const Stack = createStackNavigator();
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
@@ -77,6 +77,7 @@ const App =({authState}) => {
         <>
         <NavigationContainer>
         <Tab.Navigator
+          backBehavior='initialRoute'
           screenOptions={{
             header: (props) => <CustomHeader {...props} />
           }}
@@ -122,8 +123,21 @@ const App =({authState}) => {
               </>
             ) : (
               <>
-               <Tab.Screen name="SignIn" component={SignIn} />
-               <Tab.Screen name="SignUp" component={SignUp} />
+               <Tab.Screen name="SignIn" component={SignIn}
+               options={{
+                tabBarLabel: 'SignIn',
+                tabBarIcon: ({ color, size }) => (
+                  <MaterialCommunityIcons name="login" color={color} size={26} />
+                ),}}
+               />
+               <Tab.Screen name="SignUp" component={SignUp}
+                options={{
+                  tabBarLabel: 'SignUp',
+                  tabBarIcon: ({ color, size }) => (
+                    <MaterialCommunityIcons name="logout" color={color} size={26} />
+                  ),}}
+               
+               />
               </>
             )}
           </Tab.Navigator>
