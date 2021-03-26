@@ -21,8 +21,11 @@ import {
 const Profile = ({signOut, authState, navigation}) => {
     console.log(authState)
     const dataSource = [
-        "Volvo", "Alpha Sports", "Ford", "Gräf & Stift", "Aston Martin", "BMW", "Tarrant Automobile","Push", "Österreichische Austro-Fiat", "Mazda", "Rosenbauer"
+        "Fintech", "Team", "Bootstraped", "Idea", "EVs"
         ]
+        const dataSourceIcon = [
+            "finance", "arm-flex", "bootstrap", "brain", "car-electric"
+            ]
     return(
         <>
 <View style={styles.container}>
@@ -39,12 +42,15 @@ const Profile = ({signOut, authState, navigation}) => {
 
          
       </View>
-      <Text style={{color:'white',marginTop:12}}>
+     
+      <View style={styles.body}>
+          <View style={{alignItems:'center'}}>
+          <Text style={{color:'white',marginTop:12}}>
                   YOUR INTERESTS
               </Text>
-      <View style={styles.body}>
-           
-              <View style={{flexDirection:'row',flexWrap:'wrap'}}>
+          </View>
+      
+              <View style={{flexDirection:'row',flexWrap:'wrap',marginTop:12}}>
 {
  dataSource.map((item, index) => {
    return (
@@ -53,6 +59,7 @@ const Profile = ({signOut, authState, navigation}) => {
     flexWrap: 'wrap',
     }}>
        <Chip
+       icon={dataSourceIcon[index]}
        key={index}
        mode="outlined" //changing display mode, default is flat.
        height={30} //give desirable height to chip
