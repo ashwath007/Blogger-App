@@ -40,17 +40,7 @@ const Home = ({getPosts, postState, userDetails}) => {
     
     return(
         <>
-             <Header
-        androidStatusBarColor="#0f4c75"
-        style={{
-            backgroundColor: "#E21717"
-        }}
-        >
-        <Body>
-            <Title>Startup LIFE</Title>
-        </Body>
-        
-        </Header>
+            
      <SafeAreaView style={styles.container}>
         <View style={{marginBottom:50}}> 
         <Container>

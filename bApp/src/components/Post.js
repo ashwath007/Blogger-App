@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Image, Linking,View} from 'react-native';
+import {Image, Linking,TouchableOpacity,View} from 'react-native';
 import {
   Card,
   CardItem,
@@ -13,9 +13,9 @@ import {
 } from 'native-base';
 import database from '@react-native-firebase/database';
 
+import moment from 'moment';
 
-
-const Post = ({item, userDetails}) => {
+const Post = ({item, userDetails,navigation}) => {
 
     const [upvote, setUpvote] = useState(0)
     const [downvote, setDownvote] = useState(0)
@@ -62,7 +62,9 @@ const Post = ({item, userDetails}) => {
         .then(() => console.log('DOWNVOTED'))
     }
 
-    
+    const readArticle = (id) => {
+      navigation.navigate('Read',{id})
+    }
 
     return (
       <View style={{padding:12}}>
@@ -111,6 +113,7 @@ const Post = ({item, userDetails}) => {
               color: '#000',
               marginLeft:8
             }}>
+             
             {item.description}
           </Text>
           {/* <Text styel={{color:'black'}}>
@@ -123,7 +126,13 @@ const Post = ({item, userDetails}) => {
             backgroundColor: '#fff',
             borderRadius:12
           }}>
-          <Left>
+            <Left>
+              <Text style={{color:'#E21717',fontWeight:'bold',fontSize:13}}>
+              {moment(item.date).fromNow()}
+        
+              </Text>
+            </Left>
+          {/* <Left>
             <Button transparent onPress={upVotePost}>
               <Icon
                 name="thumbs-up"
@@ -150,7 +159,7 @@ const Post = ({item, userDetails}) => {
                  {downvote}
               </Text>
             </Button>
-          </Left>
+          </Left> */}
           <Right>
             <Button
               transparent
@@ -158,12 +167,24 @@ const Post = ({item, userDetails}) => {
               onPress={() => {
               //  Linking.openURL(`instagram://user?username=${item.instaId}`);
               }}>
-              <Text
+              
+              
+              {/* <Text
                 style={{
                   color: '#000',
                 }}>
                 Read Article
-              </Text>
+                {item.id}
+              </Text> */}
+              <TouchableOpacity style={{backgroundColor:'#EB4D4B',padding:7,borderRadius:6}}
+                onPress={()=>readArticle(item.id)}
+              >
+                <Text style={{color:'white'}}>
+                  Read Article
+                </Text>
+              </TouchableOpacity>
+
+
               {/* <Icon
                 name="instagram"
                 type="Feather"

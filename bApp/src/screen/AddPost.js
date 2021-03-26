@@ -31,6 +31,8 @@ const AddPost = ({navigation, userState}) => {
 
     const [location, setLocation] = useState('')
     const [description, setDescription] = useState('')
+    const [story, setStory] = useState('')
+
     const [image, setImage] = useState(null)
 
     const [imageUploading, setImageUploading] = useState(false)
@@ -93,6 +95,7 @@ const AddPost = ({navigation, userState}) => {
                 description,
                 picture: image,
                 by: userState.name,
+                story,
                 date: Date.now(),
                 instaId: userState.instaUserName,
                 userImage: userState.image,
@@ -128,7 +131,7 @@ const AddPost = ({navigation, userState}) => {
                   <Input
                     placeholder="location"
                     value={location}
-                    style={{color: '#eee'}}
+                    style={{color: '#000'}}
                     onChangeText={(text) => setLocation(text)}
                   />
                 </Item>
@@ -163,11 +166,19 @@ const AddPost = ({navigation, userState}) => {
                     rowSpan={5}
                     placeholder="Some description..."
                     value={description}
-                    style={{color: '#eee'}}
+                    style={{color: '#000'}}
                     onChangeText={(text) => setDescription(text)}
                   />
                 </Item>
-    
+                <Item regular style={styles.formItem}>
+                  <Textarea
+                    rowSpan={50}
+                    placeholder="Write the whole story"
+                    value={story}
+                    style={{color: '#000'}}
+                    onChangeText={(text) => setStory(text)}
+                  />
+                </Item>
                 <Button style={{backgroundColor:'#E21717'}} regular block onPress={addPost}>
                   <Text >Add Post</Text>
                 </Button>

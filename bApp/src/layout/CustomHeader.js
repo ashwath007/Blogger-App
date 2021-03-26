@@ -29,18 +29,18 @@ const CustomHeader = ({signOut, authState, navigation}) => {
         <Right>
             {authState.isAuthenticated && (
                 <>
-                <Button
+                {/* <Button
                 transparent
                 iconLeft
                 onPress={() => navigation.navigate('AddPost')}
                 >
                 <Text style={{color: '#fdcb9e'}}>Add Post</Text>
-                </Button>
+                </Button> */}
                 <Button
                 transparent
                 onPress={() => signOut()}
                 >
-                    <Icon name="log-out-outline" style={{color: "red"}} />
+                    <Icon name="log-out-outline" style={{color: "white"}} />
                 </Button>
                 </>
             )}

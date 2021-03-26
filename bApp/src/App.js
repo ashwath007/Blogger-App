@@ -15,6 +15,7 @@ import SignUp from './screen/SignUp'
 import Home from './screen/Home'
 import Profile from './screen/Profile'
 import Video from './screen/Video'
+import Read from './screen/Read'
 import CustomHeader from './layout/CustomHeader'
 
 import {SET_USER, IS_AUTHTHENTICATED} from './action/action.types'
@@ -26,6 +27,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 // LOGOS https://github.com/oblador/react-native-vector-icons/blob/master/glyphmaps/MaterialCommunityIcons.json
 const Stack = createStackNavigator();
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import HomeScreenNavigation from './components/HomeScreenNavigation'
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -74,78 +76,33 @@ const App =({authState}) => {
 
     return(
         
-        <>
-        <NavigationContainer>
-        <Tab.Navigator
-          backBehavior='initialRoute'
-          screenOptions={{
-            header: (props) => <CustomHeader {...props} />
-          }}
-          tabBarOptions={{
-            activeTintColor: '#E21717',
-          }}
-          activeColor="#fff"
-        barStyle={{ backgroundColor: '#E21717' }}
-          >
-            {authState.isAuthenticated ? (
-              <>
-               <Tab.Screen name="Home" component={Home} 
-               options={{
-                tabBarLabel: 'Home',
-                tabBarIcon: ({ color, size }) => (
-                  <MaterialCommunityIcons name="home" color={color} size={26} />
-                ),}}
-               
-               />
-                <Tab.Screen name="Video" component={Video} 
-                options={{
-                  tabBarLabel: 'Podcast',
-                  tabBarIcon: ({ color, size }) => (
-                    <MaterialCommunityIcons name="video" color={color} size={26} />
-                  ),}}
-               />
-               <Tab.Screen name="AddPost" component={AddPost} 
-                options={{
-                  tabBarLabel: 'Addpost',
-                  tabBarIcon: ({ color, size }) => (
-                    <MaterialCommunityIcons name="post" color={color} size={26} />
-                  ),}}
-               />
-                <Tab.Screen name="Profile" component={Profile} 
-                options={{
-                  tabBarLabel: 'Profile',
-                  tabBarIcon: ({ color, size }) => (
-                    <MaterialCommunityIcons name="account" color={color} size={26} />
-                  ),}}
-               />
-   
-              
-              </>
-            ) : (
-              <>
-               <Tab.Screen name="SignIn" component={SignIn}
-               options={{
-                tabBarLabel: 'SignIn',
-                tabBarIcon: ({ color, size }) => (
-                  <MaterialCommunityIcons name="login" color={color} size={26} />
-                ),}}
-               />
-               <Tab.Screen name="SignUp" component={SignUp}
-                options={{
-                  tabBarLabel: 'SignUp',
-                  tabBarIcon: ({ color, size }) => (
-                    <MaterialCommunityIcons name="logout" color={color} size={26} />
-                  ),}}
-               
-               />
-              </>
-            )}
-          </Tab.Navigator>
-        </NavigationContainer>
-        </>  
+      <>
+      <NavigationContainer>
+        <Stack.Navigator
+        screenOptions={{
+          header: (props) => <CustomHeader {...props} />,
+        }}
+        >
+          {authState.isAuthenticated ? (
+            <>
+            <Stack.Screen name="Home" component={HomeScreenNavigation} />
+            </>
+          ) : (
+            <>
+            <Stack.Screen name="SignIn" component={SignIn} />
+            <Stack.Screen name="SignUp" component={SignUp} />
+            </>
+          )}
+        </Stack.Navigator>
+      </NavigationContainer>
+      </>  
         
     )
 }
+
+
+
+
 
 const mapStateToProps = (state) => ({
   authState: state.auth
