@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, FlatList, SafeAreaView,View} from 'react-native';
+import {StyleSheet, FlatList, SafeAreaView,View, TouchableOpacity} from 'react-native';
 import {Container, H1, Text} from 'native-base';
 // redux
 import {
@@ -26,7 +26,7 @@ import MainTabScreen from "../components/MainTabScreen"
 
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
-const Home = ({getPosts, postState, userDetails}) => {
+const Home = ({getPosts, postState, userDetails,navigation}) => {
    
     useEffect(() => {
         getPosts()
@@ -48,8 +48,8 @@ const Home = ({getPosts, postState, userDetails}) => {
         
           <Body >
             <Segment style={{backgroundColor:"#E21717",padding:20,borderRadius:8}}>
-              <Button first><Text>My Feeds</Text></Button>
-              <Button last active><Text>Preferences</Text></Button>
+              <Button first ><Text>My Feeds</Text></Button>
+              <Button last active ><Text>Preferences</Text></Button>
             </Segment>
           </Body>
          
@@ -62,7 +62,7 @@ const Home = ({getPosts, postState, userDetails}) => {
             data={postState.posts}
             keyExtractor = {(item) => item.id}
             renderItem={({item,index,separators})=>(
-                <Post item={item} userDetails={userDetails} key={item.id}/>
+                <Post item={item} userDetails={userDetails} key={item.id} navigation={navigation}/>
             )}
             ListEmptyComponent={() => (
                 <Container style={styles.emptyContainer}>
@@ -73,6 +73,11 @@ const Home = ({getPosts, postState, userDetails}) => {
 
 
          </FlatList>
+         {/* <TouchableOpacity onPress={()=>navigation.jumpTo('AddPost')}>
+           <Text>
+             OI
+           </Text>
+         </TouchableOpacity> */}
      </SafeAreaView>
      </>
     )

@@ -12,9 +12,10 @@ import auth from '@react-native-firebase/auth'
 
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
-
+import HomePostNavigation from '../components/HomePostNavigation'
 import {useDispatch, connect} from 'react-redux'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import Read from '../screen/Read'
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -34,7 +35,7 @@ const HomeScreenNavigation = () => {
           activeColor="#fff"
         barStyle={{ backgroundColor: '#E21717' }}
           >
-               <Tab.Screen name="Home" component={Home} 
+               <Tab.Screen name="Home" component={HomePostNavigation} 
                options={{
                 tabBarLabel: 'Home',
                 tabBarIcon: ({ color, size }) => (
@@ -63,6 +64,8 @@ const HomeScreenNavigation = () => {
                     <MaterialCommunityIcons name="account" color={color} size={26} />
                   ),}}
                />
+           
+          
               </Tab.Navigator>
               
               </>

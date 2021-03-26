@@ -15,7 +15,7 @@ import database from '@react-native-firebase/database';
 
 import moment from 'moment';
 
-const Post = ({item, userDetails,navigation}) => {
+const Post = ({item, userDetails, navigation}) => {
 
     const [upvote, setUpvote] = useState(0)
     const [downvote, setDownvote] = useState(0)
@@ -63,7 +63,8 @@ const Post = ({item, userDetails,navigation}) => {
     }
 
     const readArticle = (id) => {
-      navigation.navigate('Read',{id})
+      //
+      navigation.navigate('Read')
     }
 
     return (

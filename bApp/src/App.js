@@ -17,6 +17,7 @@ import Profile from './screen/Profile'
 import Video from './screen/Video'
 import Read from './screen/Read'
 import CustomHeader from './layout/CustomHeader'
+import Post from './components/Post'
 
 import {SET_USER, IS_AUTHTHENTICATED} from './action/action.types'
 
@@ -86,6 +87,10 @@ const App =({authState}) => {
           {authState.isAuthenticated ? (
             <>
             <Stack.Screen name="Home" component={HomeScreenNavigation} />
+            <Stack.Screen name="Read" component={Read} />
+            <Stack.Screen name="Post" component={Post}/>
+
+
             </>
           ) : (
             <>
