@@ -3,7 +3,7 @@ import {View,Text,Image,SafeAreaView,ScrollView, TouchableOpacity} from 'react-n
 import database from '@react-native-firebase/database';
 // import {getPostById} from '../action/post'
 import EmptyContainer from '../components/EmptyContainer'
-import {Right,Left,H3} from 'native-base'
+import {Right,Left,H3,  Fab,Icon,Container} from 'native-base'
 import Tts from 'react-native-tts';
 import { Button } from 'react-native-paper';
 import { material,sanFranciscoSpacing,robotoWeights} from 'react-native-typography'
@@ -87,7 +87,8 @@ const Read = ({route}) => {
    }
    else{
    return (
-      <ScrollView contentContainerStyle={{flexGrow: 1}} style={{backgroundColor:'#fff'}}>
+    <Container>
+      <ScrollView style={{backgroundColor:'#fff'}}>
     {/* <View
             style={{ height: '50%', width: '100%',position: 'relative',backgroundColor:'black'}}
     
@@ -138,8 +139,15 @@ const Read = ({route}) => {
            {story}
        </Text>
      </View>
+  
        </ScrollView>
-
+       <Fab style={{backgroundColor:'#fff'}}
+           position="bottomRight"
+           onPress={() => navigation.navigate('Add')}
+       > 
+     <Icon name='heart' style={{fontSize: 30, color: 'red'}}/>
+       </Fab>
+       </Container>
       )
    }
         
