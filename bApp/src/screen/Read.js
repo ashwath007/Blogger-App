@@ -6,7 +6,7 @@ import EmptyContainer from '../components/EmptyContainer'
 import {Right,Left,H3} from 'native-base'
 import Tts from 'react-native-tts';
 import { Button } from 'react-native-paper';
-import { material,sanFranciscoSpacing,robotoWeights   } from 'react-native-typography'
+import { material,sanFranciscoSpacing,robotoWeights} from 'react-native-typography'
 const Read = ({route}) => {
     
     const [location, setLocation] = useState('')
