@@ -99,20 +99,21 @@ const Post = ({item, userDetails, navigation}) => {
         <CardItem cardBody>
           <Image
             source={{uri: item.picture}}
-            style={{height: 200, width: null, flex: 1,borderTopRightRadius:12}}
+            style={{height: 200, width: null, flex: 1,borderTopRightRadius:12,borderTopLeftRadius:12}}
           />
           
         </CardItem>
         <CardItem
           cardBody
           style={{
-            backgroundColor: 'transparent',
+            backgroundColor: 'transparent',padding:7,marginTop:8
           }}>
           <Text
             numberOfLines={2}
             style={{
               color: '#000',
-              marginLeft:8
+              marginLeft:8,
+              fontSize:15
             }}>
              
             {item.description}
