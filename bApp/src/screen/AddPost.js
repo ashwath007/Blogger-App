@@ -100,6 +100,8 @@ const AddPost = ({navigation, userState}) => {
                 instaId: userState.instaUserName,
                 userImage: userState.image,
                 userName: userState.name,
+                userId: userState.uid,
+
                 id: uid
             })
             console.log("Post Added SUCCESS")

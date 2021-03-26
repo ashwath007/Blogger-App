@@ -15,7 +15,41 @@ const Read = ({route}) => {
     const [author, setAuthor] = useState('')
     const [readingStatus,setReadingStatus] = useState(false)
     const [story, setStory] = useState('')
+    const [uid, setUid] = useState('')
+    const [numberOfHearts, setNumberOfHearts] = useState([])
+
+
     const [loading,setLoading] = useState(true)
+    const [upvote, setUpvote] = useState(0)
+    const [downvote, setDownvote] = useState(0)
+
+    useEffect(() => {
+        console.log(numberOfHearts)
+  
+        if (numberOfHearts) {
+          let upVote = 0
+          let downVote = 0
+  
+          Object.values(numberOfHearts).map((val) => {
+                       if (val.upvote) {
+              upVote += 1
+            }
+            
+          })
+  
+          setUpvote(upVote)
+          
+ 
+        }
+    }, [numberOfHearts])
+        const giveClaps = () => {
+            database()
+            .ref(`/posts/${route.params.id}/vote/${uid}`)
+            .set({
+              upvote: 1
+            })
+            .then(() => console.log('UPVOTED'))
+        }
 
         const readStory = async () => {
             setReadingStatus(true)
@@ -57,7 +91,7 @@ const Read = ({route}) => {
             database()
             .ref(`/posts/${ID}`)
             .on('value', (snapshot) => {
-                console.log('USER Data: ', snapshot.val())
+                console.log('USER Data: ', snapshot.val().vote)
                 if (snapshot.val()) {
                     console.log(snapshot.val().picture)
                     setLocation(snapshot.val().location)
@@ -65,6 +99,8 @@ const Read = ({route}) => {
                     setStory(snapshot.val().story)
                     setImage(snapshot.val().picture)
                     setAuthor(snapshot.val().by)
+                    setNumberOfHearts(snapshot.val().vote)
+                    setUid(snapshot.val().userId)
                     setLoading(false)
                 } else {
                     console.log("Error")
@@ -117,8 +153,15 @@ const Read = ({route}) => {
         >
            {description}
        </Text>
-     
+       <View style={{alignItems:'center',padding:20}}>
+       <View style={{marginTop:12,backgroundColor:'white',padding:2,borderRadius:4}}>
+       <Text style={{fontWeight:'bold'}}>
+            {upvote} Claps
+       </Text>
+       </View>
         </View>
+       </View>
+       
         </View>
 <View style={{alignItems:'center',marginTop:12}}>
     {!readingStatus ? (
@@ -133,6 +176,13 @@ const Read = ({route}) => {
     )}
 
 </View>
+
+<View style={{padding:20}}>
+        <Image
+                style={{height:200,width:350,borderRadius:12}}
+                source={{uri:image}}
+        />
+    </View>
      <View style={{padding:20}}>
 
      <Text style={material.title}>
@@ -141,10 +191,12 @@ const Read = ({route}) => {
      </View>
   
        </ScrollView>
+    
        <Fab style={{backgroundColor:'#fff'}}
            position="bottomRight"
-           onPress={() => navigation.navigate('Add')}
+           onPress={() => giveClaps()}
        > 
+       
      <Icon name='heart' style={{fontSize: 30, color: 'red'}}/>
        </Fab>
        </Container>
