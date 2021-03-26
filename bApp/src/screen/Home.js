@@ -47,8 +47,8 @@ const Home = ({getPosts, postState, userDetails,navigation}) => {
 
         
           <Body >
-            <Segment style={{backgroundColor:"#E21717",padding:20,borderRadius:8}}>
-              <Button first ><Text>My Feeds</Text></Button>
+            <Segment style={{backgroundColor:'#fff',padding:20,borderRadius:8}}>
+              <Button first style={{backgroundColor:'#E21717'}}><Text style={{color:"#fff"}}>My Feeds</Text></Button>
               <Button last active ><Text>Preferences</Text></Button>
             </Segment>
           </Body>

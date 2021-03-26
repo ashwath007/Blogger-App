@@ -64,7 +64,7 @@ const Post = ({item, userDetails, navigation}) => {
 
     const readArticle = (id) => {
       //
-      navigation.navigate('Read')
+      navigation.navigate('Read',{id:id})
     }
 
     return (

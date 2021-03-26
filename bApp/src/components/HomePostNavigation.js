@@ -23,8 +23,9 @@ const HomePostNavigation = () => {
         <>
        
           <Stack.Navigator
-
-        
+           screenOptions={{
+            headerShown: false
+          }}
           >
            
               <>

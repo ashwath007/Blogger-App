@@ -3,11 +3,11 @@ import {View,Text} from 'react-native'
 
 
 
-const Read = () => {
+const Read = ({route}) => {
     return(
         <View>
             <Text>
-                Read
+                Read {route.params.id}
             </Text>
         </View>
     )
