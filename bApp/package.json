@@ -32,12 +32,15 @@
         "react-native-safe-area-context": "^3.1.4",
         "react-native-screens": "^2.10.1",
         "react-native-snackbar": "^2.2.3",
+        "react-native-tts": "^4.1.0",
+        "react-native-typography": "^1.4.1",
         "react-native-vector-icons": "^7.0.0",
         "react-redux": "^7.2.1",
         "redux": "^4.0.5",
         "redux-devtools-extension": "^2.13.8",
         "redux-thunk": "^2.3.0",
-        "shortid": "^2.2.15"
+        "shortid": "^2.2.15",
+        "text-to-speech-js": "^1.1.10"
     },
     "devDependencies": {
         "@babel/core": "^7.12.9",
