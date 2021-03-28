@@ -1,39 +1,32 @@
 {
-  "project_info": {
-    "project_number": "602873578420",
-    "project_id": "bapp-abdab",
-    "storage_bucket": "bapp-abdab.appspot.com"
-  },
-  "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:602873578420:android:698fb2285d6dc3dbc268e1",
-        "android_client_info": {
-          "package_name": "com.bapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "602873578420-b0mpdj3q3ivuh9odip8177mahh15t475.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB5UkrxVByfh8iwLMYWJXmzDmuryR4bh58"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "602873578420-b0mpdj3q3ivuh9odip8177mahh15t475.apps.googleusercontent.com",
-              "client_type": 3
+    "project_info": {
+        "project_number": "602873578420",
+        "firebase_url": "https://bapp-abdab-default-rtdb.firebaseio.com",
+        "project_id": "bapp-abdab",
+        "storage_bucket": "bapp-abdab.appspot.com"
+    },
+    "client": [{
+        "client_info": {
+            "mobilesdk_app_id": "1:602873578420:android:698fb2285d6dc3dbc268e1",
+            "android_client_info": {
+                "package_name": "com.bapp"
             }
-          ]
+        },
+        "oauth_client": [{
+            "client_id": "602873578420-b0mpdj3q3ivuh9odip8177mahh15t475.apps.googleusercontent.com",
+            "client_type": 3
+        }],
+        "api_key": [{
+            "current_key": "AIzaSyB5UkrxVByfh8iwLMYWJXmzDmuryR4bh58"
+        }],
+        "services": {
+            "appinvite_service": {
+                "other_platform_oauth_client": [{
+                    "client_id": "602873578420-b0mpdj3q3ivuh9odip8177mahh15t475.apps.googleusercontent.com",
+                    "client_type": 3
+                }]
+            }
         }
-      }
-    }
-  ],
-  "configuration_version": "1"
+    }],
+    "configuration_version": "1"
 }

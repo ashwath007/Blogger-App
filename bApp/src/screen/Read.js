@@ -43,6 +43,7 @@ const Read = ({route}) => {
         }
     }, [numberOfHearts])
         const giveClaps = () => {
+          console.log('Enter')
             database()
             .ref(`/posts/${route.params.id}/vote/${uid}`)
             .set({
