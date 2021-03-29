@@ -4,16 +4,19 @@ import {
     Text,
     View,
     Image,
+    TouchableOpacity
   } from 'react-native';
-  import { Chip } from 'react-native-paper';
-import {signOut} from '../action/auth'
+  import {signOut} from '../action/auth'
+
+  import { Chip,Button } from 'react-native-paper';
+
 import { connect} from 'react-redux'
 import propTypes from 'prop-types'
 import {
     Header,
     Body,
     Right,
-    Button,
+  
     Icon,
     Title,
 
@@ -75,6 +78,15 @@ const Profile = ({signOut, authState, navigation}) => {
 </View>
 
           </View>
+          <View style={{backgroundColor:'#E21717'}}>
+            <Button color="blue" style={{marginBottom:12}} dark={false} compact={true} color='#fff' icon="logout" mode="contained" onPress={()=>{navigation.navigate('AddPost')}}>
+              Add Post
+            </Button>
+
+  <Button style={{bottom:0}} color="blue" dark={false} compact={true} color='#fff' icon="logout" mode="contained" onPress={() => signOut()}>
+  Quit
+            </Button>
+  </View>
         </>
     )
 }

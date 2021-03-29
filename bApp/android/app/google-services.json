@@ -13,9 +13,18 @@
             }
         },
         "oauth_client": [{
-            "client_id": "602873578420-b0mpdj3q3ivuh9odip8177mahh15t475.apps.googleusercontent.com",
-            "client_type": 3
-        }],
+                "client_id": "602873578420-jfbi1lu5vfp6id2kun4a7eoakmt197t4.apps.googleusercontent.com",
+                "client_type": 1,
+                "android_info": {
+                    "package_name": "com.bapp",
+                    "certificate_hash": "6242aea633be57d7e9c8cbec34b6e6bd240360e9"
+                }
+            },
+            {
+                "client_id": "602873578420-b0mpdj3q3ivuh9odip8177mahh15t475.apps.googleusercontent.com",
+                "client_type": 3
+            }
+        ],
         "api_key": [{
             "current_key": "AIzaSyB5UkrxVByfh8iwLMYWJXmzDmuryR4bh58"
         }],

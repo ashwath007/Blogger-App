@@ -9,7 +9,7 @@ import Read from '../screen/Read'
 import CustomHeader from '../layout/CustomHeader'
 
 
-
+import AddPost from '../screen/AddPost'
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 
@@ -31,6 +31,8 @@ const HomePostNavigation = () => {
               <>
               <Stack.Screen name="Home" component={Home} />
               <Stack.Screen name="Read" component={Read} />
+              <Stack.Screen name="AddPost" component={AddPost} />
+
 
   
   

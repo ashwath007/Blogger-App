@@ -1,6 +1,6 @@
 import React from 'react';
 import {View,Text,Button} from 'react-native'
-import SignIn from '../screen/SignIn'
+import SignIn from '../screen/Signin'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 

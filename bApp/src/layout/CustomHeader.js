@@ -36,12 +36,12 @@ const CustomHeader = ({signOut, authState, navigation}) => {
                 >
                 <Text style={{color: '#fdcb9e'}}>Add Post</Text>
                 </Button> */}
-                <Button
+                {/* <Button
                 transparent
                 onPress={() => signOut()}
                 >
                     <Icon name="log-out-outline" style={{color: "white"}} />
-                </Button>
+                </Button> */}
                 </>
             )}
         </Right>

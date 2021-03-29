@@ -1,10 +1,12 @@
 import React from 'react'
 import AddPost from '../screen/AddPost'
-import SignIn from '../screen/SignIn'
-import SignUp from '../screen/SignUp'
+import SignIn from '../screen/Signin'
+import SignUp from '../screen/Signup'
 import Home from '../screen/Home'
 import Profile from '../screen/Profile'
 import Video from '../screen/Video'
+import Listing from '../screen/Listing'
+
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -16,6 +18,8 @@ import HomePostNavigation from '../components/HomePostNavigation'
 import {useDispatch, connect} from 'react-redux'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Read from '../screen/Read'
+
+
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -50,9 +54,9 @@ const HomeScreenNavigation = () => {
                     <MaterialCommunityIcons name="video" color={color} size={26} />
                   ),}}
                />
-               <Tab.Screen name="AddPost" component={AddPost} 
+               <Tab.Screen name="Listing" component={Listing} 
                 options={{
-                  tabBarLabel: 'Addpost',
+                  tabBarLabel: 'Listing',
                   tabBarIcon: ({ color, size }) => (
                     <MaterialCommunityIcons name="post" color={color} size={26} />
                   ),}}
