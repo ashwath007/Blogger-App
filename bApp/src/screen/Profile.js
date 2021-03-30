@@ -16,7 +16,6 @@ import {
     Header,
     Body,
     Right,
-  
     Icon,
     Title,
 

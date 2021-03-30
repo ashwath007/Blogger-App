@@ -174,7 +174,7 @@ const AddPost = ({navigation, userState}) => {
                 </Item>
                 <Item regular style={styles.formItem}>
                   <Textarea
-                    rowSpan={50}
+                    rowSpan={10}
                     placeholder="Write the whole story"
                     value={story}
                     style={{color: '#000'}}
