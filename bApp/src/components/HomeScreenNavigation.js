@@ -15,6 +15,10 @@ import auth from '@react-native-firebase/auth'
 import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 import HomePostNavigation from '../components/HomePostNavigation'
+import ProfilePostNavigation from '../components/ProfilePostNavigation'
+
+
+
 import {useDispatch, connect} from 'react-redux'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Read from '../screen/Read'
@@ -61,7 +65,7 @@ const HomeScreenNavigation = () => {
                     <MaterialCommunityIcons name="post" color={color} size={26} />
                   ),}}
                />
-                <Tab.Screen name="Profile" component={Profile} 
+                <Tab.Screen name="Profile" component={ProfilePostNavigation} 
                 options={{
                   tabBarLabel: 'Profile',
                   tabBarIcon: ({ color, size }) => (
