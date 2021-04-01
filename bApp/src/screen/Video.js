@@ -1,14 +1,34 @@
 import React from 'react'
-import {View,Text} from 'react-native'
+import {StyleSheet, ScrollView, Image,View} from 'react-native';
+import {
+  Container,
+  Content,
+  Form,
+  Item,
+  Input,
+  Text,
+  Button,
+  H3,
+  Textarea,
+  Icon,
+} from 'native-base';
+
+
+import AdaptiveCard from 'react-native-adaptivecards';
+
 
 
 const Video = () => {
     return(
-        <View>
-            <Text>
-            Video
-            </Text>
+        <Content padder>
+        <ScrollView contentContainerStyle={{flexGrow: 1}}>
+        <View style={{backgroundColor:'#EEEEEE'}}>
+        
         </View>
+
+
+        </ScrollView>
+        </Content>
     )
 }
 
