@@ -56,7 +56,9 @@ const Profile = ({signOut, authState, navigation}) => {
 {
  dataSource.map((item, index) => {
    return (
-    <View style={{
+    <View 
+    key={index}
+    style={{
     margin: 5,
     flexWrap: 'wrap',
     }}>
