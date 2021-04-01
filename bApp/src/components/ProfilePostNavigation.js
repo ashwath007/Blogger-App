@@ -7,6 +7,10 @@ import auth from '@react-native-firebase/auth'
 import Home from '../screen/Home'
 import Read from '../screen/Read'
 import Profile from '../screen/Profile'
+import Editor from '../screen/Editor'
+
+import Company from '../screen/Company'
+
 
 
 
@@ -35,7 +39,9 @@ const HomePostNavigation = () => {
               <>
               <Stack.Screen name="Profile" component={Profile} />
 
-              <Stack.Screen name="AddPost" component={AddPost} />
+              <Stack.Screen name="Editor" component={Editor} />
+    
+
 
 
   

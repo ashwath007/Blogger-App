@@ -57,7 +57,7 @@ const Profile = ({signOut, authState, navigation}) => {
  dataSource.map((item, index) => {
    return (
     <View 
-    key={index}
+    key={index} 
     style={{
     margin: 5,
     flexWrap: 'wrap',
@@ -80,9 +80,12 @@ const Profile = ({signOut, authState, navigation}) => {
 
           </View>
           <View style={{backgroundColor:'#E21717'}}>
-            <Button color="blue" style={{marginBottom:12}} dark={false} compact={true} color='#fff' icon="logout" mode="contained" onPress={()=>{navigation.navigate('AddPost')}}>
-              Add Post
+            <Button color="blue" style={{marginBottom:12}} dark={false} compact={true} color='#fff' icon="logout" mode="contained" onPress={()=>{navigation.navigate('Editor')}}>
+              Editor
             </Button>
+            {/* <Button color="blue" style={{marginBottom:12}} dark={false} compact={true} color='#fff' icon="logout" mode="contained" onPress={()=>{navigation.navigate('Company')}}>
+              Add Company
+            </Button> */}
 
   <Button style={{bottom:0}} color="blue" dark={false} compact={true} color='#fff' icon="logout" mode="contained" onPress={() => signOut()}>
   Quit
