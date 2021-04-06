@@ -5,7 +5,7 @@ import { View,Container, Header, Content, Card, CardItem, Thumbnail,Item,Input, 
 import Snackbar from 'react-native-snackbar'
 
 
-const Editor = () => {
+const Editor = ({navigation}) => {
     const [pass,setPass] = useState("")
     
     const requestPasscode = () => {
@@ -31,6 +31,7 @@ const Editor = () => {
                       
                       },
                   });
+                  navigation.navigate('EditorPageNavigation')
         }
         // TODO: Need to work on post Request 
     }
