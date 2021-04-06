@@ -1,4 +1,4 @@
-import { SET_LISTING, ERROR_POST } from '../action/action.types'
+import { SET_LISTING, ERROR_LISTING } from '../action/action.types'
 
 const initialState = {
     listing: null,
@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
                 loading: false,
                 error: false
             }
-        case ERROR_POST:
+        case ERROR_LISTING:
             return {
                 ...state,
                 error: true

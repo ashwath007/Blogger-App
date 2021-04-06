@@ -1,13 +1,58 @@
-import React,{useState} from 'react';
-import {View,SafeAreaView,ScrollView,StyleSheet,Image} from 'react-native'
-import { Searchbar } from 'react-native-paper';
+import React,{useState,useEffect} from 'react';
+import {View,SafeAreaView,ScrollView,StyleSheet,Image,FlatList} from 'react-native'
+import { Searchbar,H1 } from 'react-native-paper';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
-const Listing = () => {
+import {getListing} from '../action/listing';
+import {connect} from 'react-redux';
+import propTypes from 'prop-types';
+import List from '../components/List';
+
+
+
+
+const Listing = ({getListing, postState,navigation,userDetails}) => {
+
+
+  useEffect(() => {
+    getListing()
+  }, [])
     const [searchQuery, setSearchQuery] = useState('');
     const onChangeSearch = query => setSearchQuery(query);
     return(
         <SafeAreaView>
-        <ScrollView contentContainerStyle={{flexGrow: 1}}>
+     
+         <FlatList
+    
+            data={postState.listing}
+            keyExtractor = {(item) => item.id}
+            renderItem={({item,index,separators})=>(
+               <List item={item} userDetails={userDetails} key={item.id} navigation={navigation}/>
+            )}
+            ListEmptyComponent={() => (
+                <Container style={styles.emptyContainer}>
+                  <H1>No post found</H1>
+                </Container>
+              )}
+             >
+
+
+         </FlatList>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {/* <ScrollView contentContainerStyle={{flexGrow: 1}}>
             <View style={styles.searchBar}>
                     <Text style={styles.cmpTxt}>
                         Company Listing
@@ -131,7 +176,7 @@ const Listing = () => {
         </Content>
       </Container>
             </View>
-            </ScrollView>
+            </ScrollView> */}
             </SafeAreaView>
     )
 }
@@ -155,4 +200,21 @@ const styles = StyleSheet.create({
 })
 
 
-export default Listing;
+Listing.propTypes = {
+  getListing: propTypes.func.isRequired,
+  postState: propTypes.object.isRequired,
+  userDetails: propTypes.object
+
+}
+
+const mapStateToProps = (state) => ({
+  postState: state.listing,
+  userDetails: state.auth.user
+})
+
+const mapDispatchToProps = {
+  getListing
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Listing)

@@ -5,3 +5,4 @@ export const SET_POST = 'SET_POST'
 export const SET_LISTING = 'SET_LISTING'
 
 export const ERROR_POST = 'ERROR_POST'
+export const ERROR_LISTING = 'ERROR_LISTING'
