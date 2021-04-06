@@ -2,4 +2,6 @@ export const IS_AUTHTHENTICATED = 'IS_AUTHTHENTICATED'
 export const SET_USER = 'SET_USER'
 
 export const SET_POST = 'SET_POST'
+export const SET_LISTING = 'SET_LISTING'
+
 export const ERROR_POST = 'ERROR_POST'
