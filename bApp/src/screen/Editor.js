@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {SafeAreaView,ScrollView,StyleSheet,Image,TouchableOpacity,Alert } from 'react-native'
 import { Searchbar } from 'react-native-paper';
 import { View,Container, Header, Content, Card, CardItem, Thumbnail,Item,Input, Text, Button, Icon, Left, Body, Right } from 'native-base';
-
+import Snackbar from 'react-native-snackbar'
 
 
 const Editor = () => {
@@ -18,6 +18,19 @@ const Editor = () => {
         }
         else if(pass == "start"){
                 //Have navigation
+                console.log('Good');
+
+        
+                Snackbar.show({
+                    text: "Congratulations you are editor now",
+                    duration: Snackbar.LENGTH_SHORT,
+                    backgroundColor:'green',
+                    action: {
+                        
+                        textColor: 'green',
+                      
+                      },
+                  });
         }
         // TODO: Need to work on post Request 
     }
