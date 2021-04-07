@@ -13,6 +13,10 @@ const List = ({item, userDetails, navigation}) => {
    
   const viewCompany = (id) => {
     console.log(id);
+
+
+    
+
   }
     return (
       <View>
