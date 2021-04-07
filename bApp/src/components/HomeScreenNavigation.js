@@ -22,6 +22,7 @@ import ProfilePostNavigation from '../components/ProfilePostNavigation'
 import {useDispatch, connect} from 'react-redux'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Read from '../screen/Read'
+import ListPostNavigation from './ListPostNavigation'
 
 
 
@@ -58,7 +59,7 @@ const HomeScreenNavigation = () => {
                     <MaterialCommunityIcons name="video" color={color} size={26} />
                   ),}}
                />
-               <Tab.Screen name="Listing" component={Listing} 
+               <Tab.Screen name="Listing" component={ListPostNavigation} 
                 options={{
                   tabBarLabel: 'Listing',
                   tabBarIcon: ({ color, size }) => (

@@ -11,13 +11,7 @@ const List = ({item, userDetails, navigation}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const onChangeSearch = query => setSearchQuery(query);
    
-  const viewCompany = (id) => {
-    console.log(id);
-
-
-    
-
-  }
+ 
     return (
       <View>
       
@@ -25,7 +19,7 @@ const List = ({item, userDetails, navigation}) => {
             <ScrollView contentContainerStyle={{flexGrow: 1}}>
             
             <View >
-              <TouchableOpacity onPress={() => viewCompany(item.id)}>
+              <TouchableOpacity onPress={() => navigation.navigate('ReadCompany',{id:item.id})}>
             <Container>
         <Content style={{padding:20}}>
           <Card style={{marginBottom:2}}>
