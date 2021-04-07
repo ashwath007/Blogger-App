@@ -6,6 +6,7 @@ import {getListing} from '../action/listing';
 import {connect} from 'react-redux';
 import propTypes from 'prop-types';
 import List from '../components/List';
+import EmptyContainer from '../components/EmptyContainer';
 
 
 
@@ -18,14 +19,20 @@ const Listing = ({getListing, postState,navigation,userDetails}) => {
   }, [])
     const [searchQuery, setSearchQuery] = useState('');
     const onChangeSearch = query => setSearchQuery(query);
+
+    if(postState.loading){
+      return <EmptyContainer/>
+  }
     return(
+ 
         <SafeAreaView>
-     
+          {console.log(postState)}
          <FlatList
     
             data={postState.listing}
             keyExtractor = {(item) => item.id}
             renderItem={({item,index,separators})=>(
+              
                <List item={item} userDetails={userDetails} key={item.id} navigation={navigation}/>
             )}
             ListEmptyComponent={() => (
@@ -81,12 +88,10 @@ const Listing = ({getListing, postState,navigation,userDetails}) => {
               <Right>
                   <View style={{padding:8}}>
                   <Text style={{fontSize:24,fontWeight:'bold',marginBottom:6}}>
-
                       Yulu
                   </Text>
                     <Text style={{fontSize:14}}>
                     React Native WebView is a modern, well-supported, and cross-platform WebView for React Native. 
-
                     </Text>
                   </View>
                   
@@ -115,12 +120,10 @@ const Listing = ({getListing, postState,navigation,userDetails}) => {
               <Right>
                   <View style={{padding:8}}>
                   <Text style={{fontSize:24,fontWeight:'bold',marginBottom:6}}>
-
                       Yulu
                   </Text>
                     <Text style={{fontSize:14}}>
                     React Native WebView is a modern, well-supported, and cross-platform WebView for React Native. 
-
                     </Text>
                   </View>
                   
@@ -149,12 +152,10 @@ const Listing = ({getListing, postState,navigation,userDetails}) => {
               <Right>
                   <View style={{padding:8}}>
                   <Text style={{fontSize:24,fontWeight:'bold',marginBottom:6}}>
-
                       Yulu
                   </Text>
                     <Text style={{fontSize:14}}>
                     React Native WebView is a modern, well-supported, and cross-platform WebView for React Native. 
-
                     </Text>
                   </View>
                   
