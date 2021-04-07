@@ -11,7 +11,9 @@ const List = ({item, userDetails, navigation}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const onChangeSearch = query => setSearchQuery(query);
    
-
+  const viewCompany = (id) => {
+    console.log(id);
+  }
     return (
       <View>
       
@@ -19,6 +21,7 @@ const List = ({item, userDetails, navigation}) => {
             <ScrollView contentContainerStyle={{flexGrow: 1}}>
             
             <View >
+              <TouchableOpacity onPress={() => viewCompany(item.id)}>
             <Container>
         <Content style={{padding:20}}>
           <Card style={{marginBottom:2}}>
@@ -30,11 +33,11 @@ const List = ({item, userDetails, navigation}) => {
               </Left>
               <Right>
                   <View style={{padding:8}}>
-                  <Text style={{fontSize:24,fontWeight:'bold',marginBottom:6}}>
+                  <Text style={{fontSize:18,fontWeight:'bold',marginBottom:6}}>
                       {item.cname}
                   </Text>
                     <Text style={{fontSize:14}}>
-                   {item.descr}
+                   {item.description}
                     </Text>
                   </View>
                   
@@ -44,12 +47,12 @@ const List = ({item, userDetails, navigation}) => {
             <CardItem style={{backgroundColor:'#CAD5E2'}}>
               <Left>
                <Text style={{color:'white'}}>
-                   Enterprise Tech, SaaS
+                   {item.ctype}
                </Text>
               </Left>
               
               <Right>
-                <Text style={{color:'white'}}>Puna</Text>
+                <Text style={{color:'white'}}>{item.headquarters}</Text>
               </Right>
             </CardItem>
        
@@ -58,7 +61,9 @@ const List = ({item, userDetails, navigation}) => {
           </Card>
         </Content>
       </Container>
+      </TouchableOpacity>
             </View>
+            
             </ScrollView>
           </View>
           </View>
