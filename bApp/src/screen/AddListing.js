@@ -33,8 +33,19 @@ const AddListing = ({navigation, userState}) => {
     const [cname, setCname] = useState('')
 
     const [location, setLocation] = useState('')
-    const [ctype, setCtype] = useState('')
+    const [cstory, setCstory] = useState('')
+    const [chistory, setChistory] = useState('')
+
+    const [facebook, setFacebook] = useState('')
+    const [cphone, setCphone] = useState('')
+    const [ceo, setCeo] = useState('')
+
+
+
+
     const [details, setDetails] = useState('')
+    const [description, setDescription] = useState('')
+
     const [selectedValue, setSelectedValue] = useState("SaaS");
 
     const [tags, setTags] = useState('')
@@ -113,12 +124,17 @@ const AddListing = ({navigation, userState}) => {
                 cname,
                 picture: image,
                 by: userState.name,
-                selectedValue,
+                ctype:selectedValue,
                 coreteam,
                 linked,
+                facebook,
+                description,
+                ceo,
+                history:chistory,
+                phone:cphone,
+                story:cstory,
                 date: Date.now(),
                 headquarters,
-                businessmodel,
                 instaId: userState.instaUserName,
                 userImage: userState.image,
                 userName: userState.name,
@@ -174,6 +190,14 @@ return (
                 </Item>
                 <Item regular style={styles.formItem}>
                   <Input
+                    placeholder="Company Description"
+                    value={description}
+                    style={{color: '#000'}}
+                    onChangeText={(text) => setDescription(text)}
+                  />
+                </Item>
+                <Item regular style={styles.formItem}>
+                  <Input
                     placeholder="Company Details"
                     value={details}
                     style={{color: '#000'}}
@@ -186,6 +210,32 @@ return (
                     value={location}
                     style={{color: '#000'}}
                     onChangeText={(text) => setLocation(text)}
+                  />
+                </Item>
+                <Item regular style={styles.formItem}>
+                  <Textarea
+                    rowSpan={10}
+                    placeholder="Write the whole story"
+                    value={cstory}
+                    style={{color: '#000'}}
+                    onChangeText={(text) => setCstory(text)}
+                  />
+                </Item>
+                <Item regular style={styles.formItem}>
+                  <Textarea
+                    rowSpan={10}
+                    placeholder="Company history"
+                    value={chistory}
+                    style={{color: '#000'}}
+                    onChangeText={(text) => setChistory(text)}
+                  />
+                </Item>
+                <Item regular style={styles.formItem}>
+                  <Input
+                    placeholder="CEO"
+                    value={ceo}
+                    style={{color: '#000'}}
+                    onChangeText={(text) => setCeo(text)}
                   />
                 </Item>
                 <Item regular style={styles.formItem}>
@@ -254,7 +304,7 @@ return (
                     onChangeText={(text) => setLink(text)}
                   />
                 </Item>
-
+                
                 <Item regular style={styles.formItem}>
                   <Input
                     placeholder="Company Headquarters"
@@ -277,6 +327,22 @@ return (
                     value={linked}
                     style={{color: '#000'}}
                     onChangeText={(text) => setLinked(text)}
+                  />
+                </Item>
+                <Item regular style={styles.formItem}>
+                  <Input
+                    placeholder="Facebook Link"
+                    value={facebook}
+                    style={{color: '#000'}}
+                    onChangeText={(text) => setFacebook(text)}
+                  />
+                </Item>
+                <Item regular style={styles.formItem}>
+                  <Input
+                    placeholder="Facebook Link"
+                    value={cphone}
+                    style={{color: '#000'}}
+                    onChangeText={(text) => setCphone(text)}
                   />
                 </Item>
                 <Button style={{backgroundColor:'#E21717'}} regular block onPress={addListing}>
