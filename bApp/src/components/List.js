@@ -19,8 +19,8 @@ const List = ({item, userDetails, navigation}) => {
             <ScrollView contentContainerStyle={{flexGrow: 1}}>
             
             <View >
-              <TouchableOpacity onPress={() => navigation.navigate('ReadCompany',{id:item.id})}>
-            <Container>
+              <TouchableOpacity onPress={() =>navigation.navigate('ReadCompany',{id:item.id})}>
+       
         <Content style={{padding:20}}>
           <Card style={{marginBottom:2}}>
             <CardItem>
@@ -58,7 +58,7 @@ const List = ({item, userDetails, navigation}) => {
           
           </Card>
         </Content>
-      </Container>
+      
       </TouchableOpacity>
             </View>
             

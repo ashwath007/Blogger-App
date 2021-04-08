@@ -11,6 +11,36 @@ import { material,sanFranciscoSpacing,robotoWeights} from 'react-native-typograp
 
 const ReadCompany = ({route}) => {
     const [loading,setLoading] = useState('');
+
+    const [ceo,setCeo] = useState('');
+    const [cname,setCname] = useState('');
+    const [cteam,setCteam] = useState('');
+    const [ctype,setCtype] = useState('');
+
+    const [date,setDate] = useState('');
+    const [description,setDescription] = useState('');
+    const [facebook,setFacebook] = useState('');
+    const [headquartes,setHeadquartes] = useState('');
+    const [history,setHistory] = useState('');
+    const [id,setId] = useState('');
+    const [linkedin,setLinkedin] = useState('');
+    const [location,setLocation] = useState('');
+    const [phone,setPhone] = useState('');
+    const [picture,setPicture] = useState('');
+    const [story,setStory] = useState('');
+    const [userId,setUserId] = useState('');
+    const [author,setAuthor] = useState('');
+
+
+
+
+
+
+
+
+
+
+
     useEffect(()=>{
         // getPostById(route.params.id)
 
@@ -25,22 +55,36 @@ const ReadCompany = ({route}) => {
         .ref(`/listing/${ID}`)
         .on('value', (snapshot) => {
             console.log('USER Data: ', snapshot.val())
-        setLoading(false)
+    
 
-            // if (snapshot.val()) {
-            //     console.log(snapshot.val().picture)
-            //     setLocation(snapshot.val().location)
-            //     setDescription(snapshot.val().description)
-            //     setStory(snapshot.val().story)
-            //     setImage(snapshot.val().picture)
-            //     setAuthor(snapshot.val().by)
-            //     setNumberOfHearts(snapshot.val().vote)
-            //     setUid(snapshot.val().userId)
-            //     setLoading(false)
-            // } else {
-            //     console.log("Error")
+            if (snapshot.val()) {
+                console.log(snapshot.val().picture)
+                setLocation(snapshot.val().location)
+                setDescription(snapshot.val().description)
+                setCeo(snapshot.val().ceo)
+                setCname(snapshot.val().cname)
+                setCteam(snapshot.val().cteam)
+                setCtype(snapshot.val().ctype)
+
+                setDate(snapshot.val().date)
+                setFacebook(snapshot.val().facebook)
+                setHeadquartes(snapshot.val().headquarters)
+                setHistory(snapshot.val().history)
+                setId(snapshot.val().id)
+                setLinkedin(snapshot.val().linked)
+                setPhone(snapshot.val().phone)
+                setUserId(snapshot.val().userId)
+
+
+
+                setStory(snapshot.val().story)
+                setPicture(snapshot.val().picture)
+                setAuthor(snapshot.val().by)
+                setLoading(false)
+            } else {
+                console.log("Error")
         
-            // }
+            }
         })
     }
     if(loading){
@@ -50,16 +94,60 @@ const ReadCompany = ({route}) => {
 
      
     return(
-        <View>
+        <ScrollView>
             <Text>
             Here
             </Text>
-            <TouchableOpacity> 
+            
                 <Text>
-                    Click here
+                    {cname}
                 </Text>
-            </TouchableOpacity>
-        </View>
+                <Text>
+                    {cteam}
+                </Text>
+                <Text>
+                    {ceo}
+                </Text>
+                <Text>
+                    {ctype}
+                </Text>
+                <Text>
+                    {date}
+                </Text>
+                <Text>
+                    {description}
+                </Text>
+                <Text>
+                    {facebook}
+                </Text>
+                <Text>
+                    {headquartes}
+                </Text>
+                <Text>
+                    {history}
+                </Text>
+                <Text>
+                    {story}
+                </Text>
+                <Text>
+                    {id}
+                </Text>
+                <Text>
+                    {userId}
+                </Text>
+                <Text>
+                    {linkedin}
+                </Text>
+                <Text>
+                    {phone}
+                </Text>
+                <Text>
+                    {picture}
+                </Text>
+                <Text>
+                    {author}
+                </Text>
+        </ScrollView>
     )
      }
 }

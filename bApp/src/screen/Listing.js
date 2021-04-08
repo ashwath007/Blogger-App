@@ -33,7 +33,7 @@ const Listing = ({getListing, postState,navigation,userDetails}) => {
             </Text>
           ) : (
             <>
-<View style={styles.searchBar}>
+{/* <View style={styles.searchBar}>
                     <Text style={styles.cmpTxt}>
                         Company Listing
                     </Text>
@@ -47,13 +47,13 @@ const Listing = ({getListing, postState,navigation,userDetails}) => {
       value={searchQuery}
     />
                     </View>
-            </View>
+            </View> */}
          <FlatList
-    
+            style={{marginBottom:23}}
             data={postState.listing}
             keyExtractor = {(item) => item.id}
             renderItem={({item,index,separators})=>(
-              
+                
                <List item={item} userDetails={userDetails} key={item.id} navigation={navigation}/>
             )}
             ListEmptyComponent={() => (
