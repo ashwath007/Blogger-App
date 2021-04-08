@@ -143,14 +143,6 @@ const AddListing = ({navigation, userState}) => {
                 id: uid
             })
             console.log("Post Added SUCCESS")
-            navigation.navigate('Home')
-        } catch (error) {
-            console.log(error)
-            Snackbar.show({
-                text: "Listing upload failed",
-                textColor: "white",
-                backgroundColor: "red"
-            });
             setCname('')
             setLocation('')
             setDetails('')
@@ -160,6 +152,15 @@ const AddListing = ({navigation, userState}) => {
             setNoofemp('')
             setCoreteam('')
             setLinked('')
+            navigation.navigate('Home')
+        } catch (error) {
+            console.log(error)
+            Snackbar.show({
+                text: "Listing upload failed",
+                textColor: "white",
+                backgroundColor: "red"
+            });
+
 
 
         }

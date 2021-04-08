@@ -94,59 +94,32 @@ const ReadCompany = ({route}) => {
 
      
     return(
-        <ScrollView>
-            <Text>
-            Here
-            </Text>
-            
-                <Text>
-                    {cname}
-                </Text>
-                <Text>
-                    {cteam}
-                </Text>
-                <Text>
-                    {ceo}
-                </Text>
-                <Text>
-                    {ctype}
-                </Text>
-                <Text>
-                    {date}
-                </Text>
-                <Text>
-                    {description}
-                </Text>
-                <Text>
-                    {facebook}
-                </Text>
-                <Text>
-                    {headquartes}
-                </Text>
-                <Text>
-                    {history}
-                </Text>
-                <Text>
-                    {story}
-                </Text>
-                <Text>
-                    {id}
-                </Text>
-                <Text>
-                    {userId}
-                </Text>
-                <Text>
-                    {linkedin}
-                </Text>
-                <Text>
-                    {phone}
-                </Text>
-                <Text>
-                    {picture}
-                </Text>
-                <Text>
-                    {author}
-                </Text>
+        <ScrollView style={{backgroundColor:'white'}}>
+            <View>
+                <View style={{alignItems:'center',marginTop:53 }}>
+                    <Image style={{height:200,width:200,borderRadius:8}} source={{uri:picture}}/>
+                </View>
+
+                <View style={{padding:20}}>
+                    <Text style={{alignSelf:'center',fontSize:36,fontWeight:'bold',textAlign: 'center'}}>
+                        {cname}
+                    </Text>
+                </View>
+                <View style={{padding:20}}>
+                    <Text style={{alignSelf:'center',color:'#242B2E',textAlign:'center',fontWeight:'400',fontSize:18}}>
+                        {description}
+                    </Text>
+                    <View style={{padding:23}}>
+                    <View style={{backgroundColor:'#E1E1E1',height:40,alignItems:'center',justifyContent:'center'}}>
+                        <Text style={{fontSize:18}}>
+                            {ctype}
+                        </Text>
+                    </View>
+                    </View>
+                   
+                </View>
+                
+            </View>
         </ScrollView>
     )
      }
