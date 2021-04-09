@@ -15,15 +15,15 @@ const List = ({item, userDetails, navigation}) => {
     return (
       <View>
       
-          <View>
+          <View style={{backgroundColor:'#fff'}}>
             <ScrollView contentContainerStyle={{flexGrow: 1}}>
             
-            <View >
+            <View style={{borderRadius:12}}>
               <TouchableOpacity onPress={() =>navigation.navigate('ReadCompany',{id:item.id})}>
        
-        <Content style={{padding:20}}>
-          <Card style={{marginBottom:2}}>
-            <CardItem>
+        <Content style={{padding:20,borderRadius:12}}>
+          <Card style={{marginBottom:2,borderRadius:12}}>
+            <CardItem style={{backgroundColor:'#E9E9E9'}}>
               <Left>
               <CardItem cardBody>
               <Image source={{uri: item.picture}} style={{height: 150, width: null, flex: 1,borderRadius:12}}/>
@@ -35,7 +35,7 @@ const List = ({item, userDetails, navigation}) => {
                       {item.cname}
                   </Text>
                     <Text 
-                       numberOfLines={2}
+                       numberOfLines={5}
                     style={{fontSize:14}}>
                    {item.description}
                     </Text>
@@ -44,7 +44,7 @@ const List = ({item, userDetails, navigation}) => {
               </Right>
             </CardItem>
             
-            <CardItem style={{backgroundColor:'#CAD5E2'}}>
+            <CardItem style={{backgroundColor:'#515151',borderBottomRadius:12}}>
               <Left>
                <Text style={{color:'white'}}>
                    {item.ctype}
