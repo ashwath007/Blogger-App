@@ -34,7 +34,9 @@ const List = ({item, userDetails, navigation}) => {
                   <Text style={{fontSize:18,fontWeight:'bold',marginBottom:6}}>
                       {item.cname}
                   </Text>
-                    <Text style={{fontSize:14}}>
+                    <Text 
+                       numberOfLines={2}
+                    style={{fontSize:14}}>
                    {item.description}
                     </Text>
                   </View>
