@@ -63,16 +63,16 @@ const Addepisode = ({navigation, userState}) => {
                 id: uid
             })
             console.log("Post Added SUCCESS")
-            setCname('')
-            setLocation('')
-            setDetails('')
-            setTags('')
+            setTitle('')
+            setContext('')
             setLink('')
-            setHeadquarters('')
-            setNoofemp('')
-            setCoreteam('')
-            setLinked('')
-            navigation.navigate('Home')
+            setHappening('')
+         Snackbar.show({
+                text: "Sucessfully Posted Episode",
+                textColor: "white",
+                backgroundColor: "green"
+            })
+            navigation.navigate('Video')
         } catch (error) {
             console.log(error)
             Snackbar.show({
