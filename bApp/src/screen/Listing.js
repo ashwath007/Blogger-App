@@ -32,8 +32,8 @@ const Listing = ({getListing, postState,navigation,userDetails}) => {
               Sorry no Listing available
             </Text>
           ) : (
-            <>
-{/* <View style={styles.searchBar}>
+            <ScrollView>
+<View style={styles.searchBar}>
                     <Text style={styles.cmpTxt}>
                         Company Listing
                     </Text>
@@ -47,7 +47,9 @@ const Listing = ({getListing, postState,navigation,userDetails}) => {
       value={searchQuery}
     />
                     </View>
-            </View> */}
+            </View>
+            
+
          <FlatList
             style={{marginBottom:23}}
             data={postState.listing}
@@ -65,7 +67,9 @@ const Listing = ({getListing, postState,navigation,userDetails}) => {
 
 
          </FlatList>
-         </>
+         
+         
+         </ScrollView>
 
           )
 
