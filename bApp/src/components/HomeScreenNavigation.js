@@ -23,6 +23,7 @@ import {useDispatch, connect} from 'react-redux'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Read from '../screen/Read'
 import ListPostNavigation from './ListPostNavigation'
+import EpisodePageNavigation from './EpisodePageNavigation'
 
 
 
@@ -52,7 +53,7 @@ const HomeScreenNavigation = () => {
                 ),}}
                
                />
-                <Tab.Screen name="Video" component={Video} 
+                <Tab.Screen name="EpisodePageNavigation" component={EpisodePageNavigation} 
                 options={{
                   tabBarLabel: 'Podcast',
                   tabBarIcon: ({ color, size }) => (

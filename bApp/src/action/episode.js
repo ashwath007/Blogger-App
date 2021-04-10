@@ -5,17 +5,17 @@ export const getEpisode = () => async(dispatch) => {
 
     try {
         database()
-            .ref('/listing/')
+            .ref('/episode/')
             .on('value', (snapshot) => {
                 console.log(snapshot.val())
                 if (snapshot.val()) {
                     dispatch({
-                        type: SET_LISTING,
+                        type: SET_EPISODE,
                         payload: Object.values(snapshot.val())
                     })
                 } else {
                     dispatch({
-                        type: SET_LISTING,
+                        type: SET_EPISODE,
                         payload: []
                     })
                 }
@@ -23,7 +23,7 @@ export const getEpisode = () => async(dispatch) => {
             })
     } catch (err) {
         dispatch({
-            type: ERROR_LISTING,
+            type: ERROR_EPISODE,
 
         })
 
