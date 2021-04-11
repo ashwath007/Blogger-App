@@ -33,54 +33,50 @@ const SignUp = ({navigation,signUp}) => {
     const [instaUserName,setInstaUserName] = useState('')
     const [country,setCountry] = useState('')
     const [bio,setBio] = useState('')
-    const [image,setImage] = useState('https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=633&q=80')
-
+    const [image,setImage] = useState('https://i.ibb.co/YPMpjPQ/logo-round.png')
 
     const [imageUploading,setImageUploading] = useState(false)
     const [uploadStatus,setUploadStatus] = useState(null)
 
 
     const chooseImage = async () => {
-            ImagePicker.showImagePicker(options, (response) => {
-                console.log('Responce : ' , response)
-                if (response.didCancel) {
-                    console.log('User cancelled image picker');
-                  } else if (response.error) {
-                    console.log('ImagePicker Error: ', response.error);
-                  } else if (response.customButton) {
-                    console.log(
-                      'User tapped custom button: ',
-                      response.customButton
-                    );
-                    alert(response.customButton);
-                  } else {
-                        console.log(response)
-                        uploadImage(response)
-                  }
+      ImagePicker.showImagePicker(options, (response) => {
+          console.log('Response = ', response)
+
+          if (response.didCancel) {
+              console.log('User cancelled image picker');
+            } else if (response.error) {
+              console.log('ImagePicker Error: ', response.error);
+            } else if (response.customButton) {
+              console.log('User tapped custom button: ', response.customButton);
+            } else {
+              console.log(response)
+              uploadImage(response)
+            }
+           
+             
+      })
+  }
 
 
+  const uploadImage = async (response) => {
+      setImageUploading(true)
+      const reference = storage().ref(response.fileName)
 
-            })
-    }
+      const task = reference.putFile(response.path)
+      task.on('state_changed', (taskSnapshot) => {
+          const percentage = (taskSnapshot.bytesTransferred / taskSnapshot.totalBytes) * 1000
 
-    const uploadImage = async (response) => {
-        setImageUploading(true)
-        const reference = storage().ref(response.fileName)
+          setUploadStatus(percentage)
+      })
 
-
-        const task = reference.putFile(response.path)
-        task.on('state_changed',(taskSnap) => {
-            const precentage = (taskSnap.bytesTransferred / taskSnap.totalBytes) * 1000
-            setUploadStatus(precentage)
-        })
-        task.then(async () => {
-            const url = await reference.getDownloadURL()
-
-            setImage(url)
-            setImageUploading(false)
-        })
-
-    }
+      task.then(async () => {
+          const url = await reference.getDownloadURL()
+          console.log(url.body)
+          setImage(url)
+          setImageUploading(false)
+      })
+  }
 
     const doSignUp = async () => {
         signUp({name,email,password,instaUserName,country,bio,image})
@@ -132,7 +128,7 @@ const SignUp = ({navigation,signUp}) => {
                 </Item>
                 <Item regular style={styles.formItem}>
                   <Input
-                    placeholder="Instagram user name"
+                    placeholder="LinkedIn Profile Link"
                     value={instaUserName}
                     placeholderTextColor="#CAD5E2"
 
@@ -142,7 +138,7 @@ const SignUp = ({navigation,signUp}) => {
                 </Item>
                 <Item regular style={styles.formItem}>
                   <Input
-                    placeholder="Your Short Bio"
+                    placeholder="About you and your position"
                     placeholderTextColor="#CAD5E2"
 
                     value={bio}
@@ -152,7 +148,7 @@ const SignUp = ({navigation,signUp}) => {
                 </Item>
                 <Item regular style={styles.formItem}>
                   <Input
-                    placeholder="Enter your Country"
+                    placeholder="Your Phone"
                     value={country}
                     placeholderTextColor="#CAD5E2"
 
