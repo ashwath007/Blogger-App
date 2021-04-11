@@ -40,7 +40,7 @@ const Video = ({getEpisode, postState, userDetails,navigation}) => {
 }else{
     console.log(postState.episode);
     return(
-        <Content padder style={{backgroundColor:'#CAD5E2'}}>
+        <Content padder style={{backgroundColor:'#ECECEC'}}>
      
         <View>
             <FlatList

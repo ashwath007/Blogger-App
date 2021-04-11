@@ -27,8 +27,7 @@ const SeeEpisodes = ({item}) => {
 
   const onStateChange = useCallback((state) => {
     if (state === "ended") {
-      setPlaying(true);
-      Alert.alert("video has finished playing!");
+      setPlaying(false);
     }
   }, []);
 
@@ -41,7 +40,7 @@ return (
         
            
     <YoutubePlayer
-        height={300}
+        height={200}
         play={playing}
         videoId={item.ylink}
         onChangeState={onStateChange}
@@ -52,7 +51,7 @@ return (
 
 
         
-        <View style={{padding:18}}>
+        <View style={{paddingRight:18,paddingLeft:18,paddingBottom:18}}>
 
         
         <View style={{flexDirection:'row'}}>
