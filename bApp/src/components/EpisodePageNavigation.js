@@ -4,6 +4,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import Video from "../screen/Video";
 import SeeEpisode from "../screen/SeeEpisode"
 import {createStackNavigator} from '@react-navigation/stack'
+import Episode from './Episode';
 
 
 const Stack = createStackNavigator();
@@ -22,6 +23,7 @@ const EpisodePageNavigation = () => {
            
               <>
               <Stack.Screen name="Video" component={Video} />
+              <Stack.Screen name="Episode" component={Episode} />
               <Stack.Screen name="SeeEpisode" component={SeeEpisode} />
 
 
