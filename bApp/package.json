@@ -45,6 +45,7 @@
         "react-native-video": "^5.1.1",
         "react-native-webview": "^11.3.2",
         "react-native-youtube": "^2.0.1",
+        "react-native-youtube-iframe": "^2.0.1",
         "react-redux": "^7.2.1",
         "react-social-icons": "^5.1.1",
         "redux": "^4.0.5",

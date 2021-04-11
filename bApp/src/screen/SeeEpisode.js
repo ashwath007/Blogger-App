@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useCallback, useRef} from 'react';
 import {View,Image, TouchableOpacity} from 'react-native'
 import moment from 'moment';
-
+import YouTube from 'react-native-youtube';
 import {
     Container,
     Content,
@@ -15,17 +15,50 @@ import {
     Textarea,
     Icon,
   } from 'native-base';
+
+  import YoutubePlayer from "react-native-youtube-iframe";
+
 const SeeEpisodes = ({item}) => {
-    return (
-<View style={{marginBottom:18,backgroundColor:'#fff',padding:18}}>
+    console.log(item.ylink)
+
+
+
+    const [playing, setPlaying] = useState(false);
+
+  const onStateChange = useCallback((state) => {
+    if (state === "ended") {
+      setPlaying(true);
+      Alert.alert("video has finished playing!");
+    }
+  }, []);
+
+  const togglePlaying = useCallback(() => {
+    setPlaying((prev) => !prev);
+  }, []);
+return (
+<View style={{marginBottom:8,backgroundColor:'#fff'}}>
     <View>
-        <View>
-            {/* video */}
-        </View>
+        
+           
+    <YoutubePlayer
+        height={300}
+        play={playing}
+        videoId={item.ylink}
+        onChangeState={onStateChange}
+      />
+      <Button title={playing ? "pause" : "play"} onPress={togglePlaying} />
+
+
+
+
+        
+        <View style={{padding:18}}>
+
+        
         <View style={{flexDirection:'row'}}>
             <View style={{justifyContent:'center'}}>
-                <Image source={{uri:item.userImage}} style={{width: 50,
-    height: 50,
+                <Image source={{uri:item.userImage}} style={{width: 40,
+    height: 40,
     borderRadius: 150 / 2,
     overflow: "hidden",
     borderWidth: 3,
@@ -37,7 +70,6 @@ const SeeEpisodes = ({item}) => {
                 </Text>
                 <Text style={{fontSize:14,fontWeight:'200',color:'#758283'}}>
                 {item.context}
-
                 </Text>
             </View>
             <View style={{justifyContent:'center',marginLeft:23,flex:1}}>
@@ -65,18 +97,17 @@ const SeeEpisodes = ({item}) => {
   }}
 />
         </View>
-        <View>
-        <Text style={{fontSize:15,fontWeight:'200',color:'#000',marginTop:12}}>
+       
+        <Text style={{fontSize:15,color:'#000',marginTop:6}}>
                 {item.happening}
-
                 </Text>
-        </View>
-        <View>
-            <TouchableOpacity>
-                <Text style={{alignSelf:'center',fontWeight:'bold',color:'#E21717'}}>
+     
+            <TouchableOpacity style={{alignItems:'center',marginTop:18}}>
+                <Text style={{fontWeight:'bold',color:'#E21717'}}>
                     See What happened ✌️ 
                 </Text>
             </TouchableOpacity>
+       
         </View>
     </View>
 </View>
