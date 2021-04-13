@@ -18,7 +18,7 @@ import {
 
   import YoutubePlayer from "react-native-youtube-iframe";
 
-const SeeEpisodes = ({item}) => {
+const SeeEpisodes = ({item,navigation}) => {
     console.log(item.ylink)
 
 
@@ -34,6 +34,13 @@ const SeeEpisodes = ({item}) => {
   const togglePlaying = useCallback(() => {
     setPlaying((prev) => !prev);
   }, []);
+
+
+  const episodeShow = (id) => {
+    navigation.navigate('ReadEpisodes',{id:id})
+  }
+
+
 return (
 <View style={{marginBottom:8,backgroundColor:'#fff'}}>
     <View>
@@ -97,11 +104,11 @@ return (
 />
         </View>
        
-        <Text style={{fontSize:15,color:'#000',marginTop:6}}>
+        <Text style={{fontSize:15,color:'#000',marginTop:6}} numberOfLines={4}>
                 {item.happening}
                 </Text>
      
-            <TouchableOpacity style={{alignItems:'center',marginTop:18}}>
+            <TouchableOpacity style={{alignItems:'center',marginTop:18}} onPress={() => episodeShow(item.id)}>
                 <Text style={{fontWeight:'bold',color:'#E21717'}}>
                     See What happened ✌️ 
                 </Text>

@@ -2,9 +2,8 @@ import React from 'react';
 import {View,Text} from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Video from "../screen/Video";
-import SeeEpisode from "../screen/SeeEpisode"
 import {createStackNavigator} from '@react-navigation/stack'
-import Episode from './Episode';
+import ReadEpisodes from '../screen/ReadEpisodes';
 
 
 const Stack = createStackNavigator();
@@ -23,12 +22,7 @@ const EpisodePageNavigation = () => {
            
               <>
               <Stack.Screen name="Video" component={Video} />
-              <Stack.Screen name="Episode" component={Episode} />
-              <Stack.Screen name="SeeEpisode" component={SeeEpisode} />
-
-
-  
-  
+              <Stack.Screen name="ReadEpisodes" component={ReadEpisodes} />
               </>
            
           </Stack.Navigator>
