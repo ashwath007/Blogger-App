@@ -15,6 +15,7 @@ import {
 import {connect} from 'react-redux'
 import {signIn} from '../action/auth'
 import propTypes from 'prop-types'
+import Snackbar from 'react-native-snackbar';
 
 
 const SignIn = ({navigation, signIn}) => {
@@ -23,7 +24,19 @@ const SignIn = ({navigation, signIn}) => {
 
 
     const doSignIn = () => {
-        signIn({email,password})
+      if(!email || !password)
+     { Snackbar.show({
+        text: 'Add all fields',
+  duration: Snackbar.LENGTH_SHORT,
+  action: {
+    text: '🖖',
+    textColor: 'green',
+    onPress: () => { /* Do something. */ },
+  },
+      })}
+      else
+      signIn({email,password})
+    
     }
 
     return (
