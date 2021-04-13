@@ -40,10 +40,10 @@ const HomeScreenNavigation = () => {
             header: (props) => <CustomHeader {...props} />
           }}
           tabBarOptions={{
-            activeTintColor: '#E21717',
+            activeTintColor: '#CA3E47',
           }}
           activeColor="#fff"
-        barStyle={{ backgroundColor: '#E21717' }}
+        barStyle={{ backgroundColor: '#CA3E47' }}
           >
                <Tab.Screen name="Home" component={HomePostNavigation} 
                options={{
