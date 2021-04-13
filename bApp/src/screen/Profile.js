@@ -9,7 +9,7 @@ import {
   import {signOut} from '../action/auth'
 
   import { Chip,Button } from 'react-native-paper';
-
+import  EpemtyContainer from '../components/EmptyContainer'
 import { connect} from 'react-redux'
 import propTypes from 'prop-types'
 import {
@@ -28,6 +28,8 @@ const Profile = ({signOut, authState, navigation}) => {
         const dataSourceIcon = [
             "finance", "arm-flex", "bootstrap", "brain", "car-electric"
             ]
+
+        if(authState){
     return(
         <>
 <View style={styles.container}>
@@ -45,7 +47,7 @@ const Profile = ({signOut, authState, navigation}) => {
          
       </View>
      
-      <View style={styles.body}>
+      {/* <View style={styles.body}>
           <View style={{alignItems:'center'}}>
           <Text style={{color:'white',marginTop:12}}>
                   YOUR INTERESTS
@@ -78,8 +80,8 @@ const Profile = ({signOut, authState, navigation}) => {
 })}
 </View>
 
-          </View>
-          <View style={{backgroundColor:'#E21717'}}>
+          </View> */}
+          <View style={{backgroundColor:'#CA3E47',padding:30}}>
             <Button color="blue" style={{marginBottom:12}} dark={false} compact={true} color='#fff' icon="logout" mode="contained" onPress={()=>{navigation.navigate('Editor')}}>
               Editor
             </Button>
@@ -93,6 +95,10 @@ const Profile = ({signOut, authState, navigation}) => {
   </View>
         </>
     )
+          }
+          else{
+            <EpemtyContainer />
+          }
 }
 
 

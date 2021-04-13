@@ -20,7 +20,7 @@ const CustomHeader = ({signOut, authState, navigation}) => {
         <Header
         androidStatusBarColor="#0f4c75"
         style={{
-            backgroundColor: "#E21717"
+            backgroundColor: "#CA3E47"
         }}
         >
         <Body>

@@ -42,16 +42,16 @@ const Home = ({getPosts, postState, userDetails,navigation}) => {
         <>
             
      <SafeAreaView style={styles.container}>
-        <View style={{marginBottom:50}}> 
+        <View style={{marginBottom:0}}> 
         <Container>
 
         
-          <Body >
+          {/* <Body >
             <Segment style={{backgroundColor:'#fff',padding:20,borderRadius:8}}>
               <Button first style={{backgroundColor:'#E21717'}}><Text style={{color:"#fff"}}>My Feeds</Text></Button>
               <Button last active ><Text>Preferences</Text></Button>
             </Segment>
-          </Body>
+          </Body> */}
          
 
    
