@@ -32,7 +32,7 @@ const SignIn = ({navigation, signIn}) => {
           
     
             <Image
-              source={{uri:'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=633&q=80'}}
+              source={{uri:'https://i.ibb.co/YPMpjPQ/logo-round.png'}}
               style={{width: null, height: 150, marginTop: 30}}
               resizeMode="contain"
             />
@@ -62,13 +62,13 @@ const SignIn = ({navigation, signIn}) => {
                 />
               
               </Item>
-              <Button block onPress={doSignIn} style={{backgroundColor:"#E21717"}}>
+              <Button block onPress={doSignIn} style={{backgroundColor:"#CA3E47"}}>
                 <Text>SignIn</Text>
               </Button>
               <TouchableOpacity
                 onPress={() => navigation.navigate('SignUp')}
                 style={{marginTop: 10}}>
-                <Text style={{color: '#E21717', textAlign: 'center'}}>
+                <Text style={{color: '#CA3E47', textAlign: 'center'}}>
                   Do not have an account, SignUp here
                 </Text>
               </TouchableOpacity>
