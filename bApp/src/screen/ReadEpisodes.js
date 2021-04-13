@@ -92,21 +92,25 @@ const ReadEpisodes = ({route}) => {
         ): (
             null
         )}
-            <View style={{alignItems:'center',padding:30}}>
-                <View style={{flexDirection:'row',padding:10}}>
+
+<View style={{marginTop:22,marginLeft:25}}>
 
                
-            <Text style={{color:'#737373',fontSize:32,fontWeight:'bold',textDecorationLine: 'underline',textDecorationColor:'#FF0000',fontFamily:'sans-serif-medium',marginBottom:32}}>
-                {title}
-            </Text>
-            <View style={{}}>
+<Text style={{color:'#737373',fontSize:32,fontWeight:'bold',textDecorationLine: 'underline',textDecorationColor:'#FF0000',fontFamily:'sans-serif-medium',marginBottom:12}}>
+    {title}
+</Text>
+
+</View>
+<View style={{alignItems:'flex-start',marginLeft:10}}>
             <TouchableOpacity onPress={() => changeShowVideo()} style={{backgroundColor:'#fff',padding:8,borderRadius:8,marginLeft:12,marginTop:3}}>
                 <Text style={{color:'#000'}}>
                     Show Video
                 </Text>
             </TouchableOpacity>
         </View>
-        </View>
+            <View style={{alignItems:'center',padding:30}}>
+               
+        
             <Text style={{fontFamily:'serif',fontSize:18}}>
                 {happening}
             </Text>
