@@ -47,9 +47,9 @@ const Profile = ({signOut, authState, navigation}) => {
          
       </View>
      
-      {/* <View style={styles.body}>
+      <View style={styles.body}>
           <View style={{alignItems:'center'}}>
-          <Text style={{color:'white',marginTop:12}}>
+          <Text style={{color:'#242B2E',marginTop:12}}>
                   YOUR INTERESTS
               </Text>
           </View>
@@ -80,16 +80,25 @@ const Profile = ({signOut, authState, navigation}) => {
 })}
 </View>
 
-          </View> */}
-          <View style={{backgroundColor:'#CA3E47',padding:30}}>
-            <Button color="blue" style={{marginBottom:12}} dark={false} compact={true} color='#fff' icon="logout" mode="contained" onPress={()=>{navigation.navigate('Editor')}}>
+
+<View
+  style={{
+    borderBottomColor: '#758283',
+    borderBottomWidth: 0.50 ,
+    marginTop:23
+  }}
+/>
+          </View>
+  
+          <View style={{backgroundColor:'#fff',padding:30}}>
+            <Button color="blue" style={{marginBottom:22}} dark={true} compact={true} color='#CA3E47' icon="send" mode="contained" onPress={()=>{navigation.navigate('Editor')}}>
               Editor
             </Button>
             {/* <Button color="blue" style={{marginBottom:12}} dark={false} compact={true} color='#fff' icon="logout" mode="contained" onPress={()=>{navigation.navigate('Company')}}>
               Add Company
             </Button> */}
 
-  <Button style={{bottom:0}} color="blue" dark={false} compact={true} color='#fff' icon="logout" mode="contained" onPress={() => signOut()}>
+  <Button style={{bottom:0}} color="blue" dark={true} compact={true} color='#242B2E' icon="logout" mode="contained" onPress={() => signOut()}>
   Quit
             </Button>
   </View>
@@ -129,7 +138,7 @@ const styles = StyleSheet.create({
       fontWeight:'600',
     },
     body:{
-      backgroundColor: "#DE4839",
+      backgroundColor: "#fff",
       height:500,
       flex:1,
       padding:20

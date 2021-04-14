@@ -154,20 +154,21 @@ const ReadCompany = ({route}) => {
                     </View>
                    
                 </View>
-                <View style={{backgroundColor:'#FF6263'}}>
+                <View style={{backgroundColor:'#fff'}}>
                     
-                            <View>
-                                    <Text style={{padding:20,fontSize:18,color:'white'}}>
+                            <View style={{padding:10}}>
+                                    <Text style={{padding:20,fontSize:18,color:'#373737',textAlign: 'justify',
+    lineHeight: 30,}}>
                                             {story}
                                         </Text>    
                             </View>
                     </View>
                    
-                    <View style={{backgroundColor:'#000',padding:20,alignItems:'center'}}>
-                        <Text style={{color:"#fff",fontSize:15}}>
+                    {/* <View style={{backgroundColor:'#fff',padding:20,alignItems:'center'}}>
+                        <Text style={{color:"#373737",fontSize:15}}>
                             {cteam}
                         </Text>
-                    </View>
+                    </View> */}
                 
             </View>
         </ScrollView>

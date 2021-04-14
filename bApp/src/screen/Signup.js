@@ -80,8 +80,8 @@ const SignUp = ({navigation,signUp}) => {
   }
 
     const doSignUp = async () => {
-
-      if(name|| !email|| !password|| !instaUserName|| !country|| !bio || !image){
+        console.log(name,email,password,instaUserName,country,bio,image)
+      if(!name|| !email|| !password|| !instaUserName|| !country|| !bio ){
         Snackbar.show({
           text: 'Add all fields',
     duration: Snackbar.LENGTH_SHORT,
