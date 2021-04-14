@@ -24,29 +24,15 @@ const Read = ({route}) => {
     const [downvote, setDownvote] = useState(0)
 
     useEffect(() => {
-        console.log(numberOfHearts)
+
   
-        if (numberOfHearts) {
-          let upVote = 0
-          let downVote = 0
-  
-          Object.values(numberOfHearts).map((val) => {
-                       if (val.upvote) {
-              upVote += 1
-            }
-            
-          })
-  
-          setUpvote(upVote)
-          
- 
-        }
     }, [numberOfHearts])
         const giveClaps = () => {
           console.log('Enter')
+          console.log(route.params.id);
             database()
             .ref(`/posts/${route.params.id}/vote/${uid}`)
-            .set({
+            .push({
               upvote: 1
             })
             .then(() => console.log('UPVOTED'))
@@ -92,16 +78,18 @@ const Read = ({route}) => {
             database()
             .ref(`/posts/${ID}`)
             .on('value', (snapshot) => {
-                console.log('USER Data: ', snapshot.val().vote)
+              console.log("CLAPS -        -----", Object.keys(snapshot.val().vote).length);
                 if (snapshot.val()) {
+                  var cont= 0 
                     console.log(snapshot.val().picture)
                     setLocation(snapshot.val().location)
                     setDescription(snapshot.val().description)
                     setStory(snapshot.val().story)
                     setImage(snapshot.val().picture)
                     setAuthor(snapshot.val().by)
-                    setNumberOfHearts(snapshot.val().vote)
+                    // setNumberOfHearts(snapshot.val().vote)
                     setUid(snapshot.val().userId)
+
                     setLoading(false)
                 } else {
                     console.log("Error")
@@ -126,6 +114,39 @@ const Read = ({route}) => {
    return (
     <Container>
       <ScrollView style={{backgroundColor:'#fff'}}>
+        <View>
+          {readingStatus ? (
+      <ScrollView style={{backgroundColor:'#fff'}}>
+
+           <View style={{padding:40}}>
+              <Text style={{fontSize:18,lineHeight: 30}}>
+                {story}
+              </Text>
+             </View>
+</ScrollView>
+          ) : (
+            <>
+            <Image
+            style={{height:220}}
+            source={{uri:image}}
+    />
+      <View style={{padding:20}}>
+<View>
+  <View>
+    
+  </View>
+</View>
+ <Text style={{fontFamily:'serif',textAlign: 'justify',
+lineHeight: 30,fontSize:18}}>
+       {story}
+   </Text>
+ </View>
+ </>
+          )
+
+          }
+       
+        </View>
     {/* <View
             style={{ height: '50%', width: '100%',position: 'relative',backgroundColor:'black'}}
     
@@ -145,7 +166,7 @@ const Read = ({route}) => {
        {/* <Text style={{color:'#E21717', fontWeight:'bold'}}>
            {author}
        </Text> */}
-       <View style={{padding:15,borderRadius:12}}>
+       {/* <View style={{padding:15,borderRadius:12}}>
 
         <View style={{padding:20,backgroundColor:'#EF5354',borderRadius:12}}>
         <Text
@@ -157,14 +178,14 @@ const Read = ({route}) => {
        <View style={{alignItems:'center',padding:20}}>
        <View style={{marginTop:12,backgroundColor:'white',padding:2,borderRadius:4}}>
        <Text style={{fontWeight:'bold'}}>
-            {upvote} Claps
+            {numberOfHearts} Claps
        </Text>
        </View>
         </View>
        </View>
        
-        </View>
-<View style={{alignItems:'center',marginTop:12}}>
+        </View> */}
+{/* <View style={{alignItems:'center'}}>
     {!readingStatus ? (
             <Button onPress={()=>readStory()} icon="play" mode="contained">
             Read for me
@@ -176,30 +197,41 @@ const Read = ({route}) => {
 
     )}
 
-</View>
+</View> */}
 
-<View style={{padding:20}}>
-        <Image
-                style={{height:200,width:350,borderRadius:12}}
-                source={{uri:image}}
-        />
-    </View>
-     <View style={{padding:20}}>
 
-     <Text style={material.title}>
-           {story}
-       </Text>
-     </View>
+   
   
        </ScrollView>
     
-       <Fab style={{backgroundColor:'#fff'}}
+       <Fab style={{backgroundColor:'black'}}
            position="bottomRight"
            onPress={() => giveClaps()}
        > 
        
-     <Icon name='heart' style={{fontSize: 30, color: 'red'}}/>
+     <Icon feather  name='paw' style={{fontSize: 30, color: 'white'}}/>
        </Fab>
+
+       {!readingStatus ? (
+          
+           <Fab style={{backgroundColor:'black'}}
+           position="bottomRight"
+           onPress={() => readStory()}
+       > 
+       
+     <Icon feather  name='paw' style={{fontSize: 30, color: 'white'}}/>
+       </Fab>
+    ) : (
+       
+        <Fab style={{backgroundColor:'black'}}
+        position="bottomRight"
+        onPress={() =>stopStory()}
+    > 
+    
+  <Icon feather  name='mic-off' style={{fontSize: 30, color: 'white'}}/>
+    </Fab>
+
+    )}
        </Container>
       )
    }

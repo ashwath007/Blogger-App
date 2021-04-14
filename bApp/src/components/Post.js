@@ -21,7 +21,7 @@ const Post = ({item, userDetails, navigation}) => {
     const [downvote, setDownvote] = useState(0)
 
     useEffect(() => {
-      console.log(item)
+      
 
       if (item.vote) {
         let upVote = 0
@@ -47,8 +47,8 @@ const Post = ({item, userDetails, navigation}) => {
     const upVotePost = () => {
       database()
         .ref(`/posts/${item.id}/vote/${userDetails.uid}`)
-        .set({
-          upvote: 1
+        .push({
+          upvote: 1 
         })
         .then(() => console.log('UPVOTED'))
     }
@@ -56,7 +56,7 @@ const Post = ({item, userDetails, navigation}) => {
     const downVotePost = () => {
       database()
         .ref(`/posts/${item.id}/vote/${userDetails.uid}`)
-        .set({
+        .push({
           downvote: 1
         })
         .then(() => console.log('DOWNVOTED'))

@@ -19,6 +19,7 @@ import ProgressBar from 'react-native-progress'
 import ImagePicker from 'react-native-image-picker'
 import {options} from '../utils/options'
 
+import Snackbar from 'react-native-snackbar';
 
 import propTypes from 'prop-types'
 import {signUp} from '../action/auth'
@@ -79,7 +80,21 @@ const SignUp = ({navigation,signUp}) => {
   }
 
     const doSignUp = async () => {
-        signUp({name,email,password,instaUserName,country,bio,image})
+        console.log(name,email,password,instaUserName,country,bio,image)
+      if(!name|| !email|| !password|| !instaUserName|| !country|| !bio ){
+        Snackbar.show({
+          text: 'Add all fields',
+    duration: Snackbar.LENGTH_SHORT,
+    action: {
+      text: '🖖',
+      textColor: 'green',
+      
+      onPress: () => { /* Do something. */ },
+    },
+        })
+      }
+      else
+      signUp({name,email,password,instaUserName,country,bio,image})
     }
     return (
         <Container style={styles.container}>
@@ -95,11 +110,11 @@ const SignUp = ({navigation,signUp}) => {
                 <ProgressBar progress={uploadStatus} style={styles.progress} />
               )}
       <View style={{padding:10}}>
-              <Form style={{padding:10,backgroundColor:"#E21717",borderRadius:12}}>
+              <Form style={{padding:10,borderRadius:12}}>
                 <Item regular style={styles.formItem}>
                   <Input
                     placeholder="Enter your name"
-                    placeholderTextColor="#CAD5E2"
+                    placeholderTextColor="#fff"
                     value={name}
                     style={{color: '#eee'}}
                     onChangeText={(text) => setName(text)}
@@ -109,7 +124,8 @@ const SignUp = ({navigation,signUp}) => {
                   <Input
                     placeholder="Enter your email"
                     value={email}
-                    placeholderTextColor="#CAD5E2"
+                    placeholderTextColor="#fff"
+
 
                     style={{color: '#eee'}}
                     onChangeText={(text) => setEmail(text)}
@@ -119,7 +135,8 @@ const SignUp = ({navigation,signUp}) => {
                   <Input
                     placeholder="Enter your password"
                     value={password}
-                    placeholderTextColor="#CAD5E2"
+                    placeholderTextColor="#fff"
+
 
                     secureTextEntry={true}
                     style={{color: '#eee'}}
@@ -130,7 +147,8 @@ const SignUp = ({navigation,signUp}) => {
                   <Input
                     placeholder="LinkedIn Profile Link"
                     value={instaUserName}
-                    placeholderTextColor="#CAD5E2"
+                    placeholderTextColor="#fff"
+
 
                     style={{color: '#eee'}}
                     onChangeText={(text) => setInstaUserName(text)}
@@ -139,7 +157,8 @@ const SignUp = ({navigation,signUp}) => {
                 <Item regular style={styles.formItem}>
                   <Input
                     placeholder="About you and your position"
-                    placeholderTextColor="#CAD5E2"
+                    placeholderTextColor="#fff"
+
 
                     value={bio}
                     style={{color: '#eee'}}
@@ -150,7 +169,8 @@ const SignUp = ({navigation,signUp}) => {
                   <Input
                     placeholder="Your Phone"
                     value={country}
-                    placeholderTextColor="#CAD5E2"
+                    placeholderTextColor="#fff"
+
 
                     style={{color: '#eee'}}
                     onChangeText={(text) => setCountry(text)}
@@ -161,7 +181,7 @@ const SignUp = ({navigation,signUp}) => {
                 </Button>
                 <TouchableOpacity
                 onPress={() => navigation.navigate('SignIn')}
-                style={{marginTop: 10}}>
+                style={{marginTop: 10,backgroundColor:'#CA3E47'}}>
                 <Text style={{color: '#fff', textAlign: 'center'}}>
                   Already have an account, SignIn here
                 </Text>
@@ -197,6 +217,8 @@ const styles = StyleSheet.create({
     progress: {width: null, marginBottom: 20},
     formItem: {
       marginBottom: 20,
+      backgroundColor:'#CA3E47',
+      borderRadius:8
     },
   });
 export default connect(null,mapDispatchToProps)(SignUp)
